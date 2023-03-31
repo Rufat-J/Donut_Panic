@@ -7,8 +7,8 @@ export default function () {
                 <h1>Donut Panic!</h1>
                 <ul className="nav-links">
                     <li><a href="#">Donuts</a></li>
-                    <li><a href="#">Beverages</a></li>
-                    <li><a href="#">Other</a></li>
+                    <li><a href="#">Hot Drinks</a></li>
+                    <li><a href="#">Cold Drinks</a></li>
                 </ul>
                 <div className="nav-buttons">
                     <button className="register-button">Register</button>
