@@ -1,10 +1,12 @@
-import express from "express"
-import mongoose from "mongoose"
-import restaurantsRouter from "./routes/restaurants-routes.js";
+import express from 'express';
+import mongoose from 'mongoose';
+import productsRouter from './routes/product-routes.js';
+import restaurantsRoutes from './routes/restaurants-routes.js';
+import categoriesRoutes from './routes/categories-routes.js';
 import ordersRouter from "./routes/orders-routes.js";
 
-const app = express()
-const conn = "mongodb+srv://donut:12345@donut.vqtqaoi.mongodb.net/test"
+const app = express();
+const conn = 'mongodb+srv://donut:12345@donut.vqtqaoi.mongodb.net/test';
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
@@ -14,6 +16,8 @@ app.get('/', (req, res)=> {
 
 app.use('/restaurants', restaurantsRouter)
 app.use('/orders', ordersRouter)
+app.use('/products', productsRouter);
+app.use('/categories', categoriesRoutes);
 
 app.listen(3000, ()=>{
     mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true }).then((result, error)=> {
