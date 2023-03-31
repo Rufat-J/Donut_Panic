@@ -12,8 +12,8 @@ app.get('/', (req, res)=> {
     res.send('Hello World')
 })
 
-app.use('/users', usersRouter)
-app.use('/restaurants', restaurantsRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/restaurants', restaurantsRouter)
 
 app.listen(3000, ()=>{
     mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true }).then((result, error)=> {

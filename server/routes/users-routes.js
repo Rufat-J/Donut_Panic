@@ -1,5 +1,4 @@
 import Router from "express";
-
 const usersRouter = Router();
 
 import mongoose, { Schema } from "mongoose";
@@ -20,7 +19,7 @@ mongoose.model("users", userSchema)
 
 usersRouter.post("/", async (req, res) => {
     try {
-        const user = new mongoose.models.users();
+        const user = new mongoose.model("User");
             user.name = req.body.name
             user.email = req.body.email
             user.password = req.body.password
@@ -30,8 +29,7 @@ usersRouter.post("/", async (req, res) => {
         const createdUser = await user.save();
 
         res.status(201).json({
-            status: "user created",
-            data: createdUser,
+            status: "user created"
         });
     } catch (error) {
         res.status(500).json(error);
