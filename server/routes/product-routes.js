@@ -28,7 +28,7 @@ productsRouter.post('/', async (req, res) => {
     });
     const createdProduct = await product.save();
 
-    res.status(201).json({ message: 'Product created', data: createdProduct });
+    res.status(201).json({ message: 'Product created' });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -37,9 +37,9 @@ productsRouter.post('/', async (req, res) => {
 productsRouter.get('/', async (req, res) => {
   try {
     const products = await mongoose.models.Products.find();
-    res.status(200).json({
-      data: products,
-    });
+    res.status(200).json(
+      products
+    );
   } catch (error) {
     res.status(500).json(error);
   }

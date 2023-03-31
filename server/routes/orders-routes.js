@@ -4,10 +4,10 @@ import mongoose, { Schema } from "mongoose";
 const ordersRouter = Router();
 
 const ordersSchema = new Schema({
-    user: [{type: mongoose.Schema.Types.ObjectId,
-        ref: "users"}],
-    restaurant: [{type: mongoose.Schema.Types.ObjectId,
-        ref: "restaurants"}],
+    user: {type: mongoose.Schema.Types.ObjectId,
+        ref: "users"},
+    restaurant: {type: mongoose.Schema.Types.ObjectId,
+        ref: "restaurants"},
     total_price: Number,
     status: String,
     pickup_time: Date,
@@ -20,16 +20,9 @@ mongoose.model("Orders", ordersSchema);
 
 ordersRouter.post("/", async (req, res) => {
     try {
-        const order = new mongoose.model("Orders")({
-            status: req.body.status,
-            user: req.body.user,
-            restaurant: req.body.restaurant,
-            total_price: req.body.total_price,
-            pickup_time: req.body.pickup_time,
-            order_time: req.body.pickup_time,
-            products: req.body.pickup_time,
-
-        });
+        const order = new mongoose.model("Orders")(
+            req.body
+        );
         const createdOrder = await order.save();
         res.status(201).json({
             status: "Order created",
