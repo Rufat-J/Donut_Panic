@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import productsRouter from './routes/product-routes.js';
-import restaurantsRoutes from './routes/restaurants-routes.js';
+import restaurantsRouter from './routes/restaurants-routes.js';
 import categoriesRoutes from './routes/categories-routes.js';
 import ordersRouter from "./routes/orders-routes.js";
 import usersRouter from "./routes/users-routes.js";
@@ -15,10 +15,10 @@ app.get('/', (req, res)=> {
     res.send('Hello World')
 })
 
-app.use('/restaurants', restaurantsRouter)
-app.use('/orders', ordersRouter)
-app.use('/products', productsRouter);
-app.use('/categories', categoriesRoutes);
+app.use('/api/restaurants', restaurantsRouter)
+app.use('/api/orders', ordersRouter)
+app.use('/api/products', productsRouter);
+app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRouter)
 
 app.listen(3000, ()=>{
