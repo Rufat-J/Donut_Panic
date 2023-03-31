@@ -1,33 +1,37 @@
 import Router from "express";
-import mongoose, { Schema } from "mongoose";
 
 const usersRouter = Router();
+
+import mongoose, { Schema } from "mongoose";
+
 
 const userSchema = new Schema({
     name: String,
     email: String,
     password: String,
     phone_number: String,
-    restaurant: [{type: mongoose.Schema.Types.ObjectId, ref: 'restaurants'}],
+    restaurant: {type: mongoose.Schema.Types.ObjectId, ref: 'restaurants'},
     role: String
-}).populate('restaurant');
+})
 
-mongoose.model("users", userSchema);
+mongoose.model("users", userSchema)
+
+
 
 usersRouter.post("/", async (req, res) => {
     try {
-        const user = new mongoose.model("users")({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password,
-            phone_number: req.body.phone_number,
-            restaurant: req.body.restaurant,
-            role: req.body.role
-        });
-        const createUser = await user.save();
+        const user = new mongoose.models.users();
+            user.name = req.body.name
+            user.email = req.body.email
+            user.password = req.body.password
+            user.phone_number = req.body.phone_number
+            user.restaurant = req.body.restaurant
+            user.role = req.body.role
+        const createdUser = await user.save();
+
         res.status(201).json({
             status: "user created",
-            data: createUser,
+            data: createdUser,
         });
     } catch (error) {
         res.status(500).json(error);
@@ -37,10 +41,8 @@ usersRouter.post("/", async (req, res) => {
 
 usersRouter.get("/", async (req, res) => {
     try {
-        const users = await mongoose.models.users.find().populate('restaurants');
-        res.status(200).json({
-            result: users.length,
-            data: users});
+        const users = await mongoose.models.users.find();
+        res.status(200).json(users);
     }
     catch(error) {
         res.status(500).json(error)
