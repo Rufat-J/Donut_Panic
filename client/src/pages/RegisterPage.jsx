@@ -10,7 +10,20 @@ function RegisterPage() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        // Here you can add code to submit the registration data to your backend or API
+        // submit the registration data to backend or API
+        fetch('/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({fullName, email, password, phone})
+        })
+            .then(response => {
+                if(response.ok) {
+                    console.log('Registration successful')
+                } else {
+                    console.error('Registration failed')
+                }
+            })
+            .catch(error => console.error(error))
         console.log(`Full Name: ${fullName}, Email: ${email}, Password: ${password}, Phone: ${phone}`);
     }
 
