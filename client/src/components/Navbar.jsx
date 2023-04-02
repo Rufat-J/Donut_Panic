@@ -1,20 +1,35 @@
 import React from 'react';
 import '../styles/navbar.css'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function () {
-     return (
-            <nav className="navbar">
+export default function Navbar() {
+    return (
+        <nav className="navbar">
+            <NavLink exact to="/" className="nav-link" activeClassName="active-link">
                 <h1>Donut Panic!</h1>
-                <ul className="nav-links">
-                    <li><a href="#">Donuts</a></li>
-                    <li><a href="#">Hot Drinks</a></li>
-                    <li><a href="#">Cold Drinks</a></li>
-                </ul>
-                <div className="nav-buttons">
-                    <Link to="/register" className="register-button">Register</Link>
-                    <Link to="/login" className="login-button">Log in</Link>
-                </div>
-            </nav>
-        );
+            </NavLink>
+            <ul className="nav-links">
+                <li>
+                    <NavLink to="/donuts" className="nav-link" activeClassName="active-link"
+                             onClick={() => console.log("activeClassName", activeClassName)}>Donuts</NavLink>
+
+                </li>
+                <li>
+                    <NavLink to="/hot-drinks" className="nav-link" activeClassName="active-link">
+                        Hot Drinks
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/cold-drinks" className="nav-link" activeClassName="active-link">
+                        Cold Drinks
+                    </NavLink>
+                </li>
+            </ul>
+            <div className="nav-buttons">
+                <NavLink to="/register" className="register-button" activeClassName="active-link">Register</NavLink>
+                <NavLink to="/login" className="login-button" activeClassName="active-link">Log in</NavLink>
+
+            </div>
+        </nav>
+    );
 }

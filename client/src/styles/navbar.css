@@ -1,77 +1,156 @@
-/* Navbar container */
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(28, 104, 111, 0.52);
-    color: #FFF;
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background-color: rgb(11, 59, 68);
+    box-shadow: 0 2px 10px rgba(74, 60, 60, 0.1);
+    z-index: 999;
 }
 
-/* Logo */
+.nav-link:hover{
+    color: white
+}
+
 .navbar h1 {
+    font-size: 2rem;
+    color: #ff8c42;;
     margin: 0;
-    font-size: 36px;
+
+    transition: all 0.3s ease-in-out;
 }
 
-/* Navigation links */
+
 .nav-links {
-    list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.nav-links li {
-    margin: 0 10px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #FFF;
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
     font-size: 18px;
-    font-weight: bold;
-    background-color: #FCC500;
-    padding: 12px 24px;
-    margin-left: 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    color: #c2bbbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* Hover effect */
-.nav-links a:hover {
-    background-color: #FFD84C; /* Slightly lighter shade of primary color */
+.nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fbb040;
+    transition: all 0.3s ease;
+    transform: scaleX(1);
+
 }
 
-/* Navigation buttons */
-.nav-buttons button {
-    border: none;
-    border-radius: 20px;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    transform: scaleX(0);
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fbb040;
+    transition: all 0.3s ease;
+    transform: scaleX(1);
+
+}
+
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-button,
+.login-button {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #ff8c42;
     padding: 10px 20px;
     margin-left: 10px;
-    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-buttons a {
-    display: inline-block;
-    background-color: #FCC500; /* Donut shop's primary color */
-    color: #fff;
-    padding: 12px 24px;
-    margin-left: 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.register-button:hover,
+.login-button:hover {
+    background-color: #36cef0;
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
-/* Hover effect */
-.nav-buttons a:hover {
-    background-color: #FFD84C; /* Slightly lighter shade of primary color */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        padding: 10px;
+    }
+
+    .nav-buttons {
+        margin-top: 10px;
+    }
+
+    .register-button,
+    .login-button {
+        margin-left: 10px;
+    }
+}
+.nav-link:hover::after {
+    /* Styles for link hover */
+}
+
+.nav-link::after {
+    /* Styles for link underline */
+    transform: scaleX(0);
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fbb040;
+    transition: all 0.3s ease;
+    transform: scaleX(1);
 }
