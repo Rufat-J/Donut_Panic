@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: darkturquoise;
+    background-color: rgba(28, 104, 111, 0.52);
     color: #FFF;
     position: fixed;
     top: 0;
@@ -35,6 +35,18 @@
     color: #FFF;
     font-size: 18px;
     font-weight: bold;
+    background-color: #FCC500;
+    padding: 12px 24px;
+    margin-left: 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    background-color: #FFD84C; /* Slightly lighter shade of primary color */
 }
 
 /* Navigation buttons */
@@ -44,4 +56,22 @@
     padding: 10px 20px;
     margin-left: 10px;
     font-size: 16px;
+}
+
+.nav-buttons a {
+    display: inline-block;
+    background-color: #FCC500; /* Donut shop's primary color */
+    color: #fff;
+    padding: 12px 24px;
+    margin-left: 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-buttons a:hover {
+    background-color: #FFD84C; /* Slightly lighter shade of primary color */
 }

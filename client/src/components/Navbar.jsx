@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/navbar.css'
+import { Link } from 'react-router-dom';
 
 export default function () {
      return (
@@ -11,8 +12,8 @@ export default function () {
                     <li><a href="#">Cold Drinks</a></li>
                 </ul>
                 <div className="nav-buttons">
-                    <button className="register-button">Register</button>
-                    <button className="login-button">Log in</button>
+                    <Link to="/register" className="register-button">Register</Link>
+                    <Link to="/login" className="login-button">Log in</Link>
                 </div>
             </nav>
         );

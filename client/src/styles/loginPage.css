@@ -1,6 +1,11 @@
 .container{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+ }
+
+body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -8,10 +13,12 @@
 .container form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    width: 180px;
 }
 
-.container form label {
-    
+.container form label span {
+    margin: 2px;
+
 }

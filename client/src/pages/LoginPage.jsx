@@ -13,10 +13,10 @@ function LoginPage() {
 
     return (
         <div className="container">
-            <h1>Donut Shop Login</h1>
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Email:
+                    <span> Email: </span>
                     <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
                 <br />
