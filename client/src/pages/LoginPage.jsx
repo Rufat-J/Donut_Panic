@@ -5,11 +5,30 @@ import '../App.css'
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
         // Here you can add code to submit the login data to your backend or API
-        console.log(`Email: ${email}, Password: ${password}`);
+        // For this example, we will use a mock API
+        fetch('/api/users/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Login successful!');
+                    // Redirect user to another page or perform other actions
+                } else {
+                    setError('Invalid email or password');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                setError('An error occurred, please try again');
+            });
     }
 
     return (
@@ -27,6 +46,7 @@ function LoginPage() {
                 </label>
                 <br />
                 <button type="submit">Login</button>
+                {error && <div className="error">{error}</div>}
             </form>
         </div>
     );
