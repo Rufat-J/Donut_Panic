@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Footer from "../components/Footer.jsx";
-import Navbar from "../components/Navbar.jsx";
+import { useState, useEffect } from 'react';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
@@ -17,14 +15,12 @@ export default function Users() {
 
     return (
         <div>
-            <Navbar />
             <h1>User List</h1>
             <ul>
                 {users.map(user => (
                     <li key={user._id}>{user.name}</li>
                 ))}
             </ul>
-            <Footer />
         </div>
     );
 }

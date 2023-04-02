@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react';
-import Footer from "../components/Footer.jsx";
-import Navbar from "../components/Navbar.jsx";
-export default function() {
-    return <h1>MENU!</h1>
+import MenuCard from "../components/MenuCard.jsx";
 
-}
-
-
-
-
-export default function Users() {
-    const [users, setUsers] = useState([]);
+export default function Menu() {
+    const [menu, setMenu] = useState([]);
 
     async function fetchData() {
-        const response = await fetch('/api/users');
+        const response = await fetch('/api/products');
         const data = await response.json();
-        setUsers(data);
+        setMenu(data);
     }
 
     useEffect(() => {
@@ -24,14 +16,7 @@ export default function Users() {
 
     return (
         <div>
-            <Navbar />
-            <h1>User List</h1>
-            <ul>
-                {users.map(user => (
-                    <li key={user._id}>{user.name}</li>
-                ))}
-            </ul>
-            <Footer />
+            {menu.map(menu => <MenuCard menu={menu}/>)}
         </div>
-    );
+    )
 }
