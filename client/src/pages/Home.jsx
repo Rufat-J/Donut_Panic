@@ -16,7 +16,7 @@ export default function Users() {
     }, []);
 
     return (
-        <div>
+        <div className="homePage">
             <Navbar />
             <h1>User List</h1>
             <ul>

@@ -13,8 +13,8 @@ function LoginPage() {
     }
 
     return (
-        <div className="container">
-            <h1>Login</h1>
+        <div className="loginPage">
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     <span> Email: </span>

@@ -15,7 +15,7 @@ function RegisterPage() {
     }
 
     return (
-        <div className="container">
+        <div className="registerPage">
             <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                 <label>

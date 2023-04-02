@@ -1,16 +1,10 @@
-.container{
-    position: relative;
-    justify-content: center;
-    align-items: center;
- }
-
-body {
+.loginPage {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.container form {
+.loginPage form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -18,7 +12,33 @@ body {
     width: 180px;
 }
 
-.container form label span {
-    margin: 2px;
+.loginPage h2  {
+    color: #008C93;
+}
 
+.loginPage form label span {
+    margin: 2px;
+}
+
+.loginPage form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px  solid black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.loginPage form button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F77586;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.loginPage form button:hover {
+    background-color: #36cef0;
 }

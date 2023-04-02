@@ -1,10 +1,10 @@
-.container {
+.registerPage {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container form {
+.registerPage form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -12,29 +12,29 @@
     width: 180px;
 }
 
-.container form label span {
+.registerPage form label span {
     margin: 2px;
 }
 
-.container form input {
+.registerPage form input {
     margin-bottom: 10px;
     padding: 5px;
-    border: none;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: #f2f2f2;
 }
 
-.container form button {
+.registerPage form button {
     margin-top: 10px;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #3b3e6d;
+    background-color: #F77586;
     color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
-.container form button:hover {
-    background-color: #1f2041;
+.registerPage form button:hover {
+    background-color: #36cef0;
 }
