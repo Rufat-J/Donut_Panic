@@ -14,6 +14,26 @@ export default function Menu() {
         fetchData();
     }, []);
 
+
+    const handleUpdate = async (id, updatedData) => {
+        try {
+            const response = await fetch(`/api/products/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedData),
+            });
+            const data = await response.json();
+            setMenu((prevMenu) =>
+                prevMenu.map((menuItem) =>
+                    menuItem.id === id ? { ...menuItem, ...data.data } : menuItem
+                )
+            );
+        } catch (error) {
+            console.error(error);
+        }
+    };
     const donutMenu = menu.filter(menuItem => menuItem.category === "Donut");
 
     return (
@@ -21,7 +41,10 @@ export default function Menu() {
             <h1 className="menu-header">Donuts</h1>
             <div className="menu-cards">
                 {donutMenu.map(menuItem => (
-                    <MenuCard key={menuItem.id} menu={menuItem}/>
+                    <MenuCard
+                        key={menuItem.id}
+                        menu={menuItem}
+                    onUpdate={(updatedData) => handleUpdate(menuItem.id, updatedData)}/>
                 ))}
             </div>
         </div>

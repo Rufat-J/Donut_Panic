@@ -1,8 +1,20 @@
 import Card from 'react-bootstrap/Card';
 import AddToCartButton from "./AddToCartButton.jsx";
+import EditMenuModal from "./EditMenuModal.jsx";
+import {useState} from "react";
 
-export default function MenuCard({menu}) {
+export default function MenuCard({menu, handleDelete}) {
     const ingredientList = menu.ingredients.join(", ");
+    const [showEditModal, setShowEditModal] = useState(false);
+
+    const handleEditClick = () => {
+        setShowEditModal(true);
+    }
+
+    const handleCloseEditModal = () => {
+        setShowEditModal(false);
+    }
+
     return (
         <div className="menu-card">
             <Card.Img src={menu.image}/>
@@ -14,9 +26,16 @@ export default function MenuCard({menu}) {
             </div>
             <br/>
             <h2 className="item-price">Price: ${menu.price}</h2>
-            <div className="add-to-cart">
-                <AddToCartButton/>
+            <div className="menu-card-buttons">
+                <div className="add-to-cart">
+                    <AddToCartButton/>
+                </div>
+                <div>
+                    <button className="update-button" onClick={handleEditClick}>Edit</button>
+                    <button className="update-button" onClick={() => handleDelete(menu.id)}>Delete</button>
+                </div>
             </div>
+            <EditMenuModal show={showEditModal} handleClose={handleCloseEditModal} menu={menu}/>
         </div>
     );
 }
