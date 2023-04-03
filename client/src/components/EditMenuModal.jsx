@@ -1,3 +1,5 @@
+//EditMenuModal.jsx
+
 import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -71,4 +73,3 @@ export default function EditMenuModal({ menu, show, handleClose, handleSave }) {
         </Modal>
     );
 }
-

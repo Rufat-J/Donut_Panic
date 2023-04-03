@@ -1,19 +1,24 @@
-import {useState, useEffect} from 'react';
+//DonutsPage.jsx
+
+import { useState, useEffect } from 'react';
 import MenuCard from "../components/MenuCard.jsx";
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
 
     async function fetchData() {
-        const response = await fetch('/api/products');
-        const data = await response.json();
-        setMenu(data);
+        try {
+            const response = await fetch('/api/products');
+            const data = await response.json();
+            setMenu(data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     useEffect(() => {
         fetchData();
     }, []);
-
 
     const handleUpdate = async (id, updatedData) => {
         try {
@@ -22,7 +27,7 @@ export default function Menu() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify({ id, ...updatedData })
             });
             const data = await response.json();
             setMenu((prevMenu) =>
@@ -34,6 +39,25 @@ export default function Menu() {
             console.error(error);
         }
     };
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`/api/products/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.status === 204) {
+                setMenu((prevMenu) =>
+                    prevMenu.filter((menuItem) => menuItem.id !== id)
+                );
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const donutMenu = menu.filter(menuItem => menuItem.category === "Donut");
 
     return (
@@ -44,7 +68,9 @@ export default function Menu() {
                     <MenuCard
                         key={menuItem.id}
                         menu={menuItem}
-                    onUpdate={(updatedData) => handleUpdate(menuItem.id, updatedData)}/>
+                        onUpdate={handleUpdate}
+                        onDelete={handleDelete}
+                    />
                 ))}
             </div>
         </div>
