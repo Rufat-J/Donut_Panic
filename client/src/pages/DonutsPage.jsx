@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
-import adminPage from '../styles/menuPage.css'
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
