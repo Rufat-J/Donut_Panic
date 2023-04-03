@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/loginPage.css'
 import '../App.css'
+import { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -20,6 +23,7 @@ function LoginPage() {
                 if (data.success) {
                     console.log('Login successful!');
                     // Redirect user to another page or perform other actions
+                    navigate('/')
                 } else {
                     setError('Invalid email or password');
                 }
