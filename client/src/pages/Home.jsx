@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Footer from "../components/Footer.jsx";
-import Navbar from "../components/Navbar.jsx";
+import { useState, useEffect } from 'react';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
