@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
 
 export default function Menu() {
@@ -19,9 +19,11 @@ export default function Menu() {
     return (
         <div className="menu-page">
             <h1 className="menu-header">Cold drinks</h1>
-            {drinkMenu.map(menuItem => (
-                <MenuCard key={menuItem.id} menu={menuItem} />
-            ))}
+            <div className="menu-cards">
+                {drinkMenu.map(menuItem => (
+                    <MenuCard key={menuItem.id} menu={menuItem}/>
+                ))}
+            </div>
         </div>
     );
 }

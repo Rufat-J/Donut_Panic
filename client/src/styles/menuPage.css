@@ -1,21 +1,28 @@
 .menu-page {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 2vw;
-    margin: 10rem;
+    margin-top: 2rem;
 }
 
 .menu-header {
+    order: -1;
+    margin-bottom: 20px;
     color: #F77586;
     text-align: center;
-    margin: 2rem;
 }
 
 .menu-card {
     width: 16rem;
     color: #008C93;
     text-align: center;
+    margin: 1rem;
+}
+
+.menu-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .add-to-cart {
@@ -27,9 +34,17 @@
     border-radius: 8px;
     margin: 8px;
     color: #F77586;
-    border: 2px solid #ffbb5d;
+    border: 1px solid #F77586;
 }
 
 .add-to-cart button:hover {
-    border: 2px solid #F77586;
+    border: 1px solid #008C93;
+    color: #008C93;
+}
+
+.item-price {
+    border-bottom: 1px solid #008C93;
+    border-top: 3px solid rgba(1, 167, 175, 0.7);
+    border-radius: 1px;
+    padding: 8px;
 }

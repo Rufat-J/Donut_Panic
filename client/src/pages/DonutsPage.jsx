@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
 import adminPage from '../styles/menuPage.css'
 
@@ -19,10 +19,12 @@ export default function Menu() {
 
     return (
         <div className="menu-page">
-<h1 className="menu-header">Donuts</h1>
-            {donutMenu.map(menuItem => (
-                <MenuCard key={menuItem.id} menu={menuItem} />
-            ))}
+            <h1 className="menu-header">Donuts</h1>
+            <div className="menu-cards">
+                {donutMenu.map(menuItem => (
+                    <MenuCard key={menuItem.id} menu={menuItem}/>
+                ))}
+            </div>
         </div>
     );
 }
