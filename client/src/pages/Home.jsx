@@ -16,15 +16,13 @@ export default function Users() {
     }, []);
 
     return (
-        <div>
-            <Navbar />
+        <div className="homePage">
             <h1>User List</h1>
             <ul>
                 {users.map(user => (
-                    <li key={user._id}>{user.name}</li>
+                    <li key={user._id}>{user.fullName}, {user.name}</li>
                 ))}
             </ul>
-            <Footer />
         </div>
     );
 }

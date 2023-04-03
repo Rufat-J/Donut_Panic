@@ -1,19 +1,33 @@
 import React from 'react';
 import '../styles/navbar.css'
+import { NavLink } from 'react-router-dom';
 
-export default function () {
-     return (
-            <nav className="navbar">
+export default function Navbar() {
+    return (
+        <nav className="navbar">
+            <NavLink to="/" className="nav-link">
                 <h1>Donut Panic!</h1>
-                <ul className="nav-links">
-                    <li><a href="#">Donuts</a></li>
-                    <li><a href="#">Hot Drinks</a></li>
-                    <li><a href="#">Cold Drinks</a></li>
-                </ul>
-                <div className="nav-buttons">
-                    <button className="register-button">Register</button>
-                    <button className="login-button">Log in</button>
-                </div>
-            </nav>
-        );
+            </NavLink>
+            <ul className="nav-links">
+                <li>
+                    <NavLink to="/donuts" className="nav-link" >Donuts</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/hot-drinks" className="nav-link" >
+                        Hot Drinks
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/cold-drinks" className="nav-link" >
+                        Cold Drinks
+                    </NavLink>
+                </li>
+            </ul>
+            <div className="nav-buttons">
+                <NavLink to="/register" className="register-button" >Register</NavLink>
+                <NavLink to="/login" className="login-button" >Log in</NavLink>
+
+            </div>
+        </nav>
+    );
 }

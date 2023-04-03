@@ -1,12 +1,9 @@
-input {
-    color: black;
-}
-
-body {
+body main .homePage {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FAEADB;
-    color: black;
+    color: #c89797;
 }
+
 
