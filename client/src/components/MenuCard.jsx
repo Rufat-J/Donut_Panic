@@ -36,7 +36,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
                     <AddToCartButton />
                 </div>
                 <div>
-                    <button className="update-button" onClick={onUpdate}>Edit</button>
+                    <button className="update-button" onClick={handleEditClick}>Edit</button>
                 </div>
                 <div>
                     <button className="update-button" onClick={onDelete}>Delete</button>
@@ -51,4 +51,3 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
         </div>
     );
 }
-
