@@ -10,7 +10,7 @@ const productsSchema = new Schema({
   price: Number,
   quantity: Number,
   image: String,
-  ingredients: String,
+  ingredients: Array,
 });
 
 mongoose.model('Products', productsSchema);

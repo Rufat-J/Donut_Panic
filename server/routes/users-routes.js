@@ -1,88 +1,106 @@
 import Router from "express";
-const usersRouter = Router();
-
+import bcrypt from "bcrypt";
 import mongoose, { Schema } from "mongoose";
 
+const usersRouter = Router();
 
 const userSchema = new Schema({
-    name: String,
+    fullName: String,
     email: String,
     password: String,
-    phone_number: String,
-    restaurant: {type: mongoose.Schema.Types.ObjectId, ref: 'restaurants'},
-    role: String
-})
+    phone: String,
+});
 
-mongoose.model("users", userSchema)
-
-
+const UserModel = mongoose.model("users", userSchema);
 
 usersRouter.post("/", async (req, res) => {
     try {
-        const user = new mongoose.model("User");
-            user.name = req.body.name
-            user.email = req.body.email
-            user.password = req.body.password
-            user.phone_number = req.body.phone_number
-            user.restaurant = req.body.restaurant
-            user.role = req.body.role
+        const user = new UserModel({
+            fullName: req.body.fullName,
+            email: req.body.email,
+            password: await bcrypt.hash(req.body.password, 10),
+            phone: req.body.phone,
+        });
+
         const createdUser = await user.save();
 
         res.status(201).json({
-            status: "user created"
+            status: "user created",
         });
     } catch (error) {
         res.status(500).json(error);
     }
 });
 
-
 usersRouter.get("/", async (req, res) => {
     try {
-        const users = await mongoose.models.users.find();
+        const users = await UserModel.find();
         res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json(error);
     }
-    catch(error) {
-        res.status(500).json(error)
-    }
-
 });
-
 
 usersRouter.get("/:id", async (req, res) => {
     try {
-        const user = await mongoose.models.users.findById(req.params.id);
+        const user = await UserModel.findById(req.params.id);
         res.status(200).json(user);
-    }
-    catch(error) {
-        res.status(500).json(error)
+    } catch (error) {
+        res.status(500).json(error);
     }
 });
 
-
 usersRouter.delete("/:id", async (req, res) => {
     try {
-        await mongoose.models.users.findByIdAndDelete(req.params.id);
-        const result = await mongoose.models.users.findById(req.params.id);
-        res.json({message: "deleted"});
+        await UserModel.findByIdAndDelete(req.params.id);
+        res.json({ message: "deleted" });
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json(error);
     }
-
 });
 
 usersRouter.patch("/:id", async (req, res) => {
     try {
-        const updatedUser = await mongoose.models.users.findByIdAndUpdate(
+        const updatedUser = await UserModel.findByIdAndUpdate(
             req.params.id,
             req.body,
             { new: true }
         );
         res.status(200).json({
-            message : "Updated",
-            data: updatedUser});
+            message: "Updated",
+            data: updatedUser,
+        });
     } catch (error) {
         res.status(500).json(error);
+    }
+});
+
+usersRouter.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const user = await UserModel.findOne({ email });
+        if (!user) {
+            // User not found
+            return res
+                .status(401)
+                .json({ success: false, message: "Invalid email or password" });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
+            // Incorrect password
+            return res
+                .status(401)
+                .json({ success: false, message: "Invalid email or password" });
+        }
+
+        // User is authenticated
+        res.json({ success: true });
+    } catch (error) {
+        res
+            .status(500)
+            .json({ success: false, message: "An error occurred, please try again" });
     }
 });
 
