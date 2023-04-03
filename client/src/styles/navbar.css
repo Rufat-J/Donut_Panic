@@ -93,7 +93,8 @@
 }
 
 .register-button,
-.login-button {
+.login-button,
+.cart-icon {
     font-size: 1.2rem;
     color: #ffffff;
     text-decoration: none;
@@ -104,8 +105,14 @@
     transition: all 0.3s ease-in-out;
 }
 
+.cart-count {
+  padding: 2px;
+  margin-left: 10px;
+}
+
 .register-button:hover,
-.login-button:hover {
+.login-button:hover,
+.cart-icon:hover{
     background-color: #36cef0;
     color: #ffffff;
     transform: scale(1.1);
