@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import MenuCard from "../components/MenuCard.jsx";
-import adminPage from '../styles/menuPage.css'
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
@@ -15,14 +14,15 @@ export default function Menu() {
         fetchData();
     }, []);
 
-    const donutMenu = menu.filter(menuItem => menuItem.category === "Donut");
+    const drinkMenu = menu.filter(menuItem => menuItem.category === "Cold Drink");
 
     return (
         <div className="menu-page">
-<h1 className="menu-header">Donuts</h1>
-            {donutMenu.map(menuItem => (
+            <h1 className="menu-header">Cold drinks</h1>
+            {drinkMenu.map(menuItem => (
                 <MenuCard key={menuItem.id} menu={menuItem} />
             ))}
         </div>
     );
 }
+

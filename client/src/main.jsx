@@ -6,10 +6,11 @@ import Home from "./pages/Home.jsx";
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from "react-router-dom"
 import Root from './components/Root'
 import ErrorPage from "./components/ErrorPage.jsx";
-import AdminPage from './pages/AdminPage.jsx'
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
+import ColdDrinksPage from './pages/ColdDrinksPage'
+import HotDrinksPage from './pages/HotDrinksPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -18,7 +19,9 @@ const router = createBrowserRouter(
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/donuts" element={<DonutsPage/>}/>
-            <Route path="menu" element={<AdminPage />}/>
+            <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
+            <Route path="/hot-drinks" element={<HotDrinksPage />}/>
+
         </Route>
 
     ])

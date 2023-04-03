@@ -1,7 +1,35 @@
-body main .admin-page {
+.menu-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2vw;
     margin: 10rem;
+}
+
+.menu-header {
+    color: #F77586;
+    text-align: center;
+    margin: 2rem;
+}
+
+.menu-card {
+    width: 16rem;
+    color: #008C93;
+    text-align: center;
+}
+
+.add-to-cart {
+    text-align: center;
+}
+
+.add-to-cart button {
+    background-color: #FAEADB;
+    border-radius: 8px;
+    margin: 8px;
+    color: #F77586;
+    border: 2px solid #ffbb5d;
+}
+
+.add-to-cart button:hover {
+    border: 2px solid #F77586;
 }
