@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function AddToCartButton({ product }) {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(0);
 
     const incrementQuantity = () => {
         setQuantity(quantity + 1);
