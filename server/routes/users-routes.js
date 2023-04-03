@@ -1,6 +1,7 @@
 import Router from "express";
 import bcrypt from "bcrypt";
 import mongoose, { Schema } from "mongoose";
+import jwt from "jsonwebtoken";
 
 const usersRouter = Router();
 
@@ -88,6 +89,7 @@ usersRouter.post("/login", async (req, res) => {
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);
+        console.log(passwordMatch)
         if (!passwordMatch) {
             // Incorrect password
             return res
@@ -95,8 +97,14 @@ usersRouter.post("/login", async (req, res) => {
                 .json({ success: false, message: "Invalid email or password" });
         }
 
+        const token = jwt.sign({id: user._id}, "secret");
+        /*res.json({token, userID: user._id})*/
+        res.json({success:true, token, userID: user._id})
+
+        console.log(token)
+
         // User is authenticated
-        res.json({ success: true });
+
     } catch (error) {
         res
             .status(500)
