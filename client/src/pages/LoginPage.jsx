@@ -9,8 +9,7 @@ function LoginPage() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        // Here you can add code to submit the login data to your backend or API
-        // For this example, we will use a mock API
+
         fetch('/api/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

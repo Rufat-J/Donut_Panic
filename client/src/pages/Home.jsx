@@ -17,14 +17,12 @@ export default function Users() {
 
     return (
         <div className="homePage">
-            <Navbar />
             <h1>User List</h1>
             <ul>
                 {users.map(user => (
                     <li key={user._id}>{user.fullName}, {user.name}</li>
                 ))}
             </ul>
-            <Footer />
         </div>
     );
 }
