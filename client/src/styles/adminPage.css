@@ -1,4 +1,4 @@
-.admin-page {
+body main .admin-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

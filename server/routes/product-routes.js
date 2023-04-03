@@ -1,5 +1,6 @@
 import Router from 'express';
 import mongoose, { Schema } from 'mongoose';
+import usersRouter from "./users-routes.js";
 
 const productsRouter = Router();
 
@@ -37,13 +38,12 @@ productsRouter.post('/', async (req, res) => {
 productsRouter.get('/', async (req, res) => {
   try {
     const products = await mongoose.models.Products.find();
-    res.status(200).json({
-      data: products,
-    });
+    res.status(200).json(products);
   } catch (error) {
     res.status(500).json(error);
   }
 });
+
 
 productsRouter.get('/:id', async (req, res) => {
   try {
@@ -53,6 +53,9 @@ productsRouter.get('/:id', async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+
+
 
 productsRouter.delete('/:id', async (req, res) => {
   try {
