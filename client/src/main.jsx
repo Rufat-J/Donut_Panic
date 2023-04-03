@@ -8,6 +8,8 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
+import Cart from "./pages/CartPage.jsx"
+import { CartProvider} from "./components/CartContext.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -16,14 +18,15 @@ const router = createBrowserRouter(
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/donuts" element={<DonutsPage/>}/>
+            <Route path="/cart" element={<Cart/>} />
         </Route>
-
     ])
 );
 
-
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <CartProvider>
+            <RouterProvider router={router}/>
+        </CartProvider>
     </React.StrictMode>
 );
