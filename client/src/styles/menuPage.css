@@ -7,7 +7,8 @@ menu-page {
 
 .menu-header {
     order: -1;
-    margin-bottom: 20px;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
     color: #F77586;
     text-align: center;
 }
@@ -15,14 +16,32 @@ menu-page {
 .menu-card {
     width: 16rem;
     color: #008C93;
+    background-color: white;
+    border: 1px solid #F77586;
     text-align: center;
     margin: 1rem;
+}
+
+.menu-card p {
+    font-size: 14px;
+}
+
+.menu-card h1 {
+    font-size: 22px;
+    margin-top: 10px;
+
+}
+
+.menu-card h2 {
+    font-size: 18px;
 }
 
 .menu-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 8rem;
+    margin-left: 3rem;
 }
 
 .add-to-cart {

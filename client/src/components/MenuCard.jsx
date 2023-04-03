@@ -1,23 +1,22 @@
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import AddToCartButton from "./AddToCartButton.jsx";
 
 export default function MenuCard({menu}) {
     const ingredientList = menu.ingredients.join(", ");
     return (
-        <Card className="menu-card">
+        <div className="menu-card">
             <Card.Img src={menu.image}/>
-            <Card.Body>
-                <Card.Title>{menu.name}</Card.Title>
-                <Card.Text>
+            <div>
+                <h1 className="menu-item">{menu.name}</h1>
+                <p className="ingredients">
                     {ingredientList}
-                </Card.Text>
-            </Card.Body>
+                </p>
+            </div>
             <br/>
-            <Card.Text className="item-price">Price: ${menu.price}</Card.Text>
+            <h2 className="item-price">Price: ${menu.price}</h2>
             <div className="add-to-cart">
                 <AddToCartButton/>
             </div>
-        </Card>
+        </div>
     );
 }
