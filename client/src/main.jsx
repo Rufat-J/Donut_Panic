@@ -24,7 +24,6 @@ const router = createBrowserRouter(
             <Route path="/cart" element={<Cart/>} />
             <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
             <Route path="/hot-drinks" element={<HotDrinksPage />}/>
-
         </Route>
 
     ])

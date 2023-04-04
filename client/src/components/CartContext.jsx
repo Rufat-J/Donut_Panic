@@ -1,25 +1,27 @@
 import React, { useState, createContext } from 'react';
 
-export const CartContext = createContext(); // Skapa en context
+export const CartContext = createContext();
 
-export const CartProvider = ({ children }) => { // Skapa en provider
-    const [cartItems, setCartItems] = useState([]); // Definiera en state-variabel för varukorgen
+    export const CartProvider = ({ children }) => {
+        const [cartItems, setCartItems] = useState([]);
 
-    // Funktion för att lägga till en produkt i varukorgen
-    const addToCart = (product) => {
-        setCartItems([...cartItems, product]);
+        const addToCart = (product, quantity) => {
+            setCartItems([...cartItems, { ...product, quantity }]);
+            console.log(product)
+        };
+
+        const removeFromCart = (product) => {
+            const updatedCartItems = cartItems.filter(
+                (item) => item.id !== product.id
+            );
+            setCartItems(updatedCartItems);
+        };
+
+        return (
+            <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+                {children}
+            </CartContext.Provider>
+        );
     };
 
-    // Funktion för att ta bort en produkt från varukorgen
-    const removeFromCart = (product) => {
-        const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
-        setCartItems(updatedCartItems);
-    };
 
-    // Returnera CartContext.Provider-komponenten som tillhandahåller data till resten av appen
-    return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
-            {children}
-        </CartContext.Provider>
-    );
-};
