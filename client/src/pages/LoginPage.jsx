@@ -27,6 +27,7 @@ function LoginPage() {
                 if (data.success) {
                     console.log('Login successful!');
                     login(data.user); // Set the user data in context
+                    console.log(login(data.user))
                     // Redirect user to another page or perform other actions
                     navigate('/');
                 } else {
