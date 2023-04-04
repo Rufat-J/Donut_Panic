@@ -8,8 +8,12 @@ export default function Menu() {
 
     async function fetchData() {
         try {
+
             const response = await fetch('/api/products');
             const data = await response.json();
+            for (let i = 0; i < data.length; i++) {
+                data[i].id = data[i]._id;
+            }
             setMenu(data);
         } catch (error) {
             console.error(error);
@@ -41,7 +45,7 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
-        console.log(menu)
+        console.log(id)
         try {
             const response = await fetch(`/api/products/${id}`, {
                 method: 'DELETE',
@@ -68,14 +72,16 @@ export default function Menu() {
                 <NavLink className="update-button" to="/update-menu"> Add new item</NavLink>
             </div>
             <div className="menu-cards">
-                {donutMenu.map(menuItem => (
-                    <MenuCard
+                {donutMenu.map(menuItem => {
+
+                        console.log(menuItem)
+                    return <MenuCard
                         key={menuItem.id}
                         menu={menuItem}
                         onUpdate={handleUpdate}
-                        onDelete={handleDelete}
+                        onDelete={() => handleDelete(menuItem.id)}
                     />
-                ))}
+                })}
             </div>
         </div>
     );
