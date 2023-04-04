@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 export default function Menu() {
@@ -31,12 +31,12 @@ export default function Menu() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ id, ...updatedData })
+                body: JSON.stringify({id, ...updatedData})
             });
             const data = await response.json();
             setMenu((prevMenu) =>
                 prevMenu.map((menuItem) =>
-                    menuItem.id === id ? { ...menuItem, ...data.data } : menuItem
+                    menuItem.id === id ? {...menuItem, ...data.data} : menuItem
                 )
             );
         } catch (error) {
@@ -45,7 +45,6 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
             const response = await fetch(`/api/products/${id}`, {
                 method: 'DELETE',
@@ -72,16 +71,14 @@ export default function Menu() {
                 <NavLink className="update-button" to="/update-menu"> Add new item</NavLink>
             </div>
             <div className="menu-cards">
-                {donutMenu.map(menuItem => {
-
-                        console.log(menuItem)
-                    return <MenuCard
+                {donutMenu.map(menuItem => (
+                    <MenuCard
                         key={menuItem.id}
                         menu={menuItem}
                         onUpdate={handleUpdate}
                         onDelete={() => handleDelete(menuItem.id)}
                     />
-                })}
+                ))}
             </div>
         </div>
     );

@@ -21,7 +21,6 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
     };
 
     const handleDeleteClick = () => {
-        console.log(menu)
         onDelete(menu.id);
     };
 
