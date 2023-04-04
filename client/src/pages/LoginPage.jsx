@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import '../styles/loginPage.css'
-import '../App.css'
-import { useNavigate } from 'react-router-dom'
+// LoginPage.js
+
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../UserContext';
+import '../styles/loginPage.css';
+import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
+    const { login } = useContext(UserContext);
     const navigate = useNavigate();
 
     function handleSubmit(event) {
@@ -16,14 +19,16 @@ function LoginPage() {
         fetch('/api/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password }),
+            credentials: 'include', // Include cookies in the request
         })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     console.log('Login successful!');
+                    login(data.user); // Set the user data in context
                     // Redirect user to another page or perform other actions
-                    navigate('/')
+                    navigate('/');
                 } else {
                     setError('Invalid email or password');
                 }

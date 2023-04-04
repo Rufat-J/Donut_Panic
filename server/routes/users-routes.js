@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const usersRouter = Router();
 
 const userSchema = new Schema({
-    fullName: String,
+    name: String,
     email: String,
     password: String,
     phone: String,
@@ -17,7 +17,7 @@ const UserModel = mongoose.model("users", userSchema);
 usersRouter.post("/", async (req, res) => {
     try {
         const user = new UserModel({
-            fullName: req.body.fullName,
+            name: req.body.fullName,
             email: req.body.email,
             password: await bcrypt.hash(req.body.password, 10),
             phone: req.body.phone,
@@ -97,8 +97,11 @@ usersRouter.post("/login", async (req, res) => {
                 .json({ success: false, message: "Invalid email or password" });
         }
 
+        // Set user ID in session
+        req.session.userId = user._id;
+
         const token = jwt.sign({id: user._id}, "secret");
-        /*res.json({token, userID: user._id})*/
+       /* res.redirect('/');*/
         res.json({success:true, token, userID: user._id})
 
         console.log(token)
