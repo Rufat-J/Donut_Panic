@@ -1,0 +1,47 @@
+.add-new-item-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-new-item-page h1 {
+    color: #F77586;
+    margin-bottom: 2rem;
+}
+
+.add-new-item-page form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+    color: #003e42;
+}
+
+.add-new-item-page form label span {
+    margin: 2px;
+
+}
+
+.add-new-item-page form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #007575;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.add-new-item-page form button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F77586;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-new-item-page form button:hover {
+    background-color: #36cef0;
+}

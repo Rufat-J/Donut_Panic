@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/addNewItemPage.css';
 
 function AddProductForm() {
     const [name, setName] = useState('');
@@ -31,6 +32,8 @@ function AddProductForm() {
     }
 
     return (
+        <div className="add-new-item-page">
+            <h1>Add new item to menu:</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input
@@ -83,6 +86,7 @@ function AddProductForm() {
 
             <button type="submit">Add Product</button>
         </form>
+        </div>
     );
 }
 

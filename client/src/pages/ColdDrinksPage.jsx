@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
+import {NavLink} from "react-router-dom";
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
@@ -19,6 +20,7 @@ export default function Menu() {
     return (
         <div className="menu-page">
             <h1 className="menu-header">Cold drinks</h1>
+            <NavLink className="update-button" to="/update-menu"> Add new item</NavLink>
             <div className="menu-cards">
                 {drinkMenu.map(menuItem => (
                     <MenuCard key={menuItem.id} menu={menuItem}/>
