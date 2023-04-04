@@ -1,9 +1,6 @@
-//DonutsPage.jsx
-
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
-import AddNewItemPage from "./AddNewItemPage.jsx";
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 export default function Menu() {
@@ -11,8 +8,12 @@ export default function Menu() {
 
     async function fetchData() {
         try {
+
             const response = await fetch('/api/products');
             const data = await response.json();
+            for (let i = 0; i < data.length; i++) {
+                data[i].id = data[i]._id;
+            }
             setMenu(data);
         } catch (error) {
             console.error(error);
@@ -30,12 +31,12 @@ export default function Menu() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ id, ...updatedData })
+                body: JSON.stringify({id, ...updatedData})
             });
             const data = await response.json();
             setMenu((prevMenu) =>
                 prevMenu.map((menuItem) =>
-                    menuItem.id === id ? { ...menuItem, ...data.data } : menuItem
+                    menuItem.id === id ? {...menuItem, ...data.data} : menuItem
                 )
             );
         } catch (error) {
@@ -44,9 +45,8 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
-            const response = await fetch(`/api/products/:${id}`, {
+            const response = await fetch(`/api/products/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default function Menu() {
                         key={menuItem.id}
                         menu={menuItem}
                         onUpdate={handleUpdate}
-                        onDelete={handleDelete}
+                        onDelete={() => handleDelete(menuItem.id)}
                     />
                 ))}
             </div>
