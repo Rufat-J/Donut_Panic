@@ -37,8 +37,6 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
                 </div>
                 <div>
                     <button className="update-button" onClick={handleEditClick}>Edit</button>
-                </div>
-                <div>
                     <button className="update-button" onClick={onDelete}>Delete</button>
                 </div>
             </div>

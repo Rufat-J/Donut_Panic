@@ -3,12 +3,12 @@ menu-page {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .menu-header {
     order: -1;
     margin-top: 8rem;
-    margin-bottom: 3rem;
     color: #F77586;
     text-align: center;
 }
@@ -69,14 +69,18 @@ menu-page {
 }
 
 .update-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     background-color: #F77586;
-    border: 1px solid #fbb040;
-    border-radius: 8px;
-    margin: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none;
 }
 
 .update-button:hover {
-    background-color: #008C93;
-    color: #fbb040;
-    border-color: #fbb040;
+    background-color: #36cef0;
+    color: white;
 }
