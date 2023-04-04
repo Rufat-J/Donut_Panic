@@ -40,8 +40,7 @@ export default function Navbar() {
             <div className="nav-buttons">
                 {user ? (
                     <>
-                        <span className="welcome-message">Welcome, {user.name}!</span>
-                        <button onClick={logout} className="logout-button">
+                        <button onClick={logout} className="logout-button login-button">
                             Logout
                         </button>
                     </>

@@ -14,9 +14,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        secure: false, //true in action, but has to be false in production
-        httpOnly: true, //defaultinställning som gör att man inte kommer åt cookies via JavaScript
-        maxAge: 365 * 24 * 60 * 60 * 1000 //ett år i millisekunder
+        secure: false, // set to true with https
+        httpOnly: true
     }
 }))
 

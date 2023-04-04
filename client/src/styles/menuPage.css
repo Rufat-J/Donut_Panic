@@ -10,6 +10,7 @@ menu-page {
     margin-bottom: 20px;
     color: #F77586;
     text-align: center;
+    margin-top: 6rem;
 }
 
 .menu-card {
@@ -17,6 +18,7 @@ menu-page {
     color: #008C93;
     text-align: center;
     margin: 1rem;
+
 }
 
 .menu-cards {
@@ -47,4 +49,21 @@ menu-page {
     border-top: 3px solid rgba(1, 167, 175, 0.7);
     border-radius: 1px;
     padding: 8px;
+}
+
+@media screen and (max-width: 868px) {
+    .menu-header {
+        order: -1;
+        margin-bottom: 20px;
+        margin-top: 10rem;
+        color: #F77586;
+        text-align: center;
+    }
+    .menu-cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -15,6 +15,11 @@
     z-index: 999;
 }
 
+.welcome-message {
+    position: relative;
+    left: -100px;
+}
+
 .nav-link:hover{
     color: white
 }
@@ -106,8 +111,8 @@
 }
 
 .cart-count {
-  padding: 2px;
-  margin-left: 10px;
+    padding: 2px;
+    margin-left: 10px;
 }
 
 .register-button:hover,
@@ -118,22 +123,28 @@
     transform: scale(1.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 868px) {
     .navbar {
         flex-direction: column;
-        height: auto;
+        height: 15vh;
+    }
+
+    .navbar h1 {
+        display: none;
     }
 
     .nav-links {
-        flex-direction: column;
+
     }
 
     .nav-link {
         padding: 10px;
+        margin-top: -10px;
     }
 
     .nav-buttons {
         margin-top: 10px;
+        margin-bottom: 5px;
     }
 
     .register-button,
@@ -147,7 +158,7 @@
 
 .nav-link::after {
     /* Styles for link underline */
-    transform: scaleX(0);
+    /*transform: scaleX(0);*/
 }
 
 .active-link::after {

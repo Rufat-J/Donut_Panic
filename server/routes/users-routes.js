@@ -78,7 +78,7 @@ usersRouter.patch("/:id", async (req, res) => {
 
 usersRouter.post("/login", async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, } = req.body;
 
         const user = await UserModel.findOne({ email });
         if (!user) {
@@ -89,7 +89,6 @@ usersRouter.post("/login", async (req, res) => {
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);
-        console.log(passwordMatch)
         if (!passwordMatch) {
             // Incorrect password
             return res
@@ -97,17 +96,13 @@ usersRouter.post("/login", async (req, res) => {
                 .json({ success: false, message: "Invalid email or password" });
         }
 
-        // Set user ID in session
-        req.session.userId = user._id;
-
         const token = jwt.sign({id: user._id}, "secret");
-       /* res.redirect('/');*/
-        res.json({success:true, token, userID: user._id})
-
-        console.log(token)
 
         // User is authenticated
-
+        res.json({
+            success:true, token,
+            userID: user._id,
+            name: user.name});
     } catch (error) {
         res
             .status(500)
