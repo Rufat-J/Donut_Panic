@@ -18,6 +18,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
     };
 
     const handleUpdateClick = (updatedData) => {
+        console.log({menu})
         onUpdate(updatedData);
         setShowEditModal(false);
     };

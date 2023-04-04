@@ -46,6 +46,7 @@ function AddProductForm() {
 
             <label htmlFor="category">Category:</label>
             <select id="category" name="category" value={category} onChange={event => setCategory(event.target.value)} required>
+                <option value="" disabled>Select category</option>
                 <option value="Donut">Donut</option>
                 <option value="Cold Drink">Cold Drink</option>
                 <option value="Hot Drink">Hot Drink</option>
