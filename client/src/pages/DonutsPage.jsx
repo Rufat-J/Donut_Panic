@@ -1,8 +1,5 @@
-//DonutsPage.jsx
-
 import { useState, useEffect } from 'react';
 import MenuCard from "../components/MenuCard.jsx";
-import AddNewItemPage from "./AddNewItemPage.jsx";
 import { NavLink } from 'react-router-dom';
 
 
@@ -44,9 +41,9 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
-        console.log(id)
+        console.log(menu)
         try {
-            const response = await fetch(`/api/products/:${id}`, {
+            const response = await fetch(`/api/products/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
