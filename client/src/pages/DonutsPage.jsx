@@ -44,8 +44,9 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
+        console.log(id)
         try {
-            const response = await fetch(`/api/products/${id}`, {
+            const response = await fetch(`/api/products/:${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
