@@ -46,14 +46,11 @@ function AddProductForm() {
             />
 
             <label htmlFor="category">Category:</label>
-            <input
-                type="text"
-                id="category"
-                name="category"
-                value={category}
-                onChange={event => setCategory(event.target.value)}
-                required
-            />
+            <select id="category" name="category" value={category} onChange={event => setCategory(event.target.value)} required>
+                <option value="Donut">Donut</option>
+                <option value="Cold Drink">Cold Drink</option>
+                <option value="Hot Drink">Hot Drink</option>
+            </select>
 
             <label htmlFor="price">Price:</label>
             <input
