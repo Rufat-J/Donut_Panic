@@ -7,8 +7,10 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const login = (userData) => {
-        setUser(userData);
+    const login = (userID) => {
+        console.log(userID)
+         setUser(userID);
+
     };
 
     const logout = () => {
