@@ -10,9 +10,9 @@ export default function Root() {
             <UserProvider>
                 <CartProvider>
                 <Navbar/>
-                <main>
+
                     <Outlet/>
-                </main>
+
                 <Footer/>
                 </CartProvider>
             </UserProvider>

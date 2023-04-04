@@ -172,3 +172,9 @@
     transition: all 0.3s ease;
     transform: scaleX(1);
 }
+
+@media screen and (max-width: 976px ) {
+    .navbar h1 {
+        font-size: 20px;
+    }
+}

@@ -17,11 +17,6 @@ export default function Navbar() {
             </NavLink>
             <ul className="nav-links">
                 <li>
-                    <NavLink to="/" className="nav-link">
-                        Home
-                    </NavLink>
-                </li>
-                <li>
                     <NavLink to="/donuts" className="nav-link">
                         Donuts
                     </NavLink>

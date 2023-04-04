@@ -10,6 +10,7 @@ const userSchema = new Schema({
     email: String,
     password: String,
     phone: String,
+    isAdmin: Boolean,
 });
 
 const UserModel = mongoose.model("users", userSchema);
@@ -17,7 +18,7 @@ const UserModel = mongoose.model("users", userSchema);
 usersRouter.post("/", async (req, res) => {
     try {
         const user = new UserModel({
-            name: req.body.fullName,
+            name: req.body.name,
             email: req.body.email,
             password: await bcrypt.hash(req.body.password, 10),
             phone: req.body.phone,
@@ -102,7 +103,8 @@ usersRouter.post("/login", async (req, res) => {
         res.json({
             success:true, token,
             userID: user._id,
-            name: user.name});
+            name: user.name,
+            isAdmin: user.isAdmin});
     } catch (error) {
         res
             .status(500)

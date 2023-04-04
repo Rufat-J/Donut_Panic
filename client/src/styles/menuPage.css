@@ -1,8 +1,11 @@
-menu-page {
+.menu-page {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 2rem;
+    margin-bottom: 5rem;
+    justify-content: center;
+
 }
 
 .menu-header {
@@ -18,13 +21,16 @@ menu-page {
     color: #008C93;
     text-align: center;
     margin: 1rem;
-
+    min-height: 36vh;
+    background-color: #eae8ec;
 }
 
 .menu-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-to-cart {
