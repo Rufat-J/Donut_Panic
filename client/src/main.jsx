@@ -13,6 +13,7 @@ import Cart from "./pages/CartPage.jsx"
 import { CartProvider} from "./components/CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
+import AddNewItemPage from './pages/AddNewItemPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
             <Route path="/cart" element={<Cart/>} />
             <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
             <Route path="/hot-drinks" element={<HotDrinksPage />}/>
+            <Route path="/update-menu" element={<AddNewItemPage />}/>
 
         </Route>
 

@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import MenuCard from "../components/MenuCard.jsx";
+import AddNewItemPage from "./AddNewItemPage.jsx";
+import { NavLink } from 'react-router-dom';
+
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
@@ -41,8 +44,9 @@ export default function Menu() {
     };
 
     const handleDelete = async (id) => {
+        console.log(id)
         try {
-            const response = await fetch(`/api/products/${id}`, {
+            const response = await fetch(`/api/products/:${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,7 +66,10 @@ export default function Menu() {
 
     return (
         <div className="menu-page">
-            <h1 className="menu-header">Donuts</h1>
+            <div className="header-and-button">
+                <h1 className="menu-header">Donuts</h1>
+                <NavLink className="update-button" to="/update-menu"> Add new item</NavLink>
+            </div>
             <div className="menu-cards">
                 {donutMenu.map(menuItem => (
                     <MenuCard

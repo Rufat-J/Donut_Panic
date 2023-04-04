@@ -1,7 +1,4 @@
-//EditMenuModal.jsx
-
 import { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
 
 export default function EditMenuModal({ menu, show, handleClose, handleSave }) {
     const [name, setName] = useState(menu.name);
@@ -23,53 +20,57 @@ export default function EditMenuModal({ menu, show, handleClose, handleSave }) {
     };
 
     return (
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Edit Menu Item</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formName">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
+        <div className="edit-details" style={{ display: show ? 'block' : 'none' }}>
+            <div>
+                <h3>Edit Menu Item</h3>
+            </div>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="name">Name:</label>
+                        <input
                             type="text"
+                            id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
-                    </Form.Group>
-                    <Form.Group controlId="formPrice">
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control
+                    </div>
+                    <div>
+                        <label htmlFor="price">Price:</label>
+                        <input
                             type="number"
+                            id="price"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                             required
                         />
-                    </Form.Group>
-                    <Form.Group controlId="formIngredients">
-                        <Form.Label>Ingredients</Form.Label>
-                        <Form.Control
+                    </div>
+                    <div>
+                        <label htmlFor="ingredients">Ingredients:</label>
+                        <input
                             type="text"
+                            id="ingredients"
                             value={ingredients}
                             onChange={(e) => setIngredients(e.target.value)}
                             required
                         />
-                    </Form.Group>
-                    <Form.Group controlId="formImage">
-                        <Form.Label>Image URL</Form.Label>
-                        <Form.Control
+                    </div>
+                    <div>
+                        <label htmlFor="image">Image URL:</label>
+                        <input
                             type="text"
+                            id="image"
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
                             required
                         />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
+                    </div>
+                    <button type="submit">
                         Save Changes
-                    </Button>
-                </Form>
-            </Modal.Body>
-        </Modal>
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 }
