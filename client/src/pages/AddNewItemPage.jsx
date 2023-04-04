@@ -18,7 +18,6 @@ function AddProductForm() {
             .then(response => {
                 if (response.ok) {
                     console.log('update successful');
-                    // reset form fields
                     setName('');
                     setCategory('');
                     setPrice('');
