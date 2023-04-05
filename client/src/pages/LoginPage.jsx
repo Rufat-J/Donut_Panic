@@ -27,13 +27,12 @@ function LoginPage() {
                 if (data.success) {
                     console.log('Login successful!');
                     login(data.userID);// Set the user data in context
-                    console.log(login(data.userID)) //is undefiend
-                    console.log(data.isAdmin); // is undefined
+                    console.log(data.name)
+                    console.log(data.isAdmin);
                     // Check if user is an admin
-                    console.log(login(data.name))
                     if (data.isAdmin) {
                         // User is an admin, display message
-                        console.log(data.name +'You are an admin!');
+                        console.log(data.name + ' You are an admin!');
                     }
 
                     // Redirect user to another page or perform other actions

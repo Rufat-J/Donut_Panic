@@ -7,10 +7,10 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const login = (userID, name) => {
+    const login = (userID,) => {
         console.log(userID)
          setUser(userID);
-        console.log(name)
+
 
     };
 
