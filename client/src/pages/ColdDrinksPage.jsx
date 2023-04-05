@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useMenu } from '../menuContext';
 import MenuCard from '../components/MenuCard.jsx';
+import '../styles/menuPage.css'
 
 export default function ColdDrinksPage() {
     const { drinkMenu, handleUpdate, handleDelete } = useMenu();
