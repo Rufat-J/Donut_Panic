@@ -33,11 +33,12 @@ export default function OrdersPage() {
                 {orders.map(order => (
                     <tr key={order._id}>
                         <td>{order._id}</td>
-
                         <td>{order.user.name}</td>
                         <td>{order.products.map(product => <li>{product.name}</li>)}</td>
                         <td>{order.total_price}:-</td>
                     </tr>
+
+
                 ))}
                 </tbody>
             </table>
