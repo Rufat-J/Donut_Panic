@@ -10,9 +10,10 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
 import Cart from "./pages/ShoppingCartPage.jsx"
-import { CartProvider} from "./components/CartContext.jsx";
+import { CartProvider } from "./components/CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
+import AddNewItemPage from './pages/AddNewItemPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -24,6 +25,8 @@ const router = createBrowserRouter(
             <Route path="/cart" element={<Cart/>} />
             <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
             <Route path="/hot-drinks" element={<HotDrinksPage />}/>
+            <Route path="/update-menu" element={<AddNewItemPage />}/>
+
         </Route>
 
     ])
@@ -32,8 +35,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <CartProvider>
-            <RouterProvider router={router}/>
-        </CartProvider>
+                <RouterProvider router={router}/>
     </React.StrictMode>
 );

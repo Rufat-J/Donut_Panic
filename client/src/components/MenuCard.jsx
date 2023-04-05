@@ -1,5 +1,3 @@
-//MenuCard.jsx
-
 import Card from 'react-bootstrap/Card';
 import AddToCartButton from "./AddToCartButton.jsx";
 import EditMenuModal from "./EditMenuModal.jsx";
@@ -18,8 +16,12 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
     };
 
     const handleUpdateClick = (updatedData) => {
-        onUpdate(updatedData);
+        onUpdate(menu.id, updatedData);
         setShowEditModal(false);
+    };
+
+    const handleDeleteClick = () => {
+        onDelete(menu.id);
     };
 
     return (
@@ -37,9 +39,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
                 </div>
                 <div>
                     <button className="update-button" onClick={handleEditClick}>Edit</button>
-                </div>
-                <div>
-                    <button className="update-button" onClick={onDelete}>Delete</button>
+                    <button className="update-button" onClick={handleDeleteClick}>Delete</button>
                 </div>
             </div>
             <EditMenuModal

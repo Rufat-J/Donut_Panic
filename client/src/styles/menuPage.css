@@ -1,16 +1,19 @@
-menu-page {
+.menu-page {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 2rem;
+    margin-bottom: 5rem;
+    justify-content: center;
+
 }
 
 .menu-header {
     order: -1;
-    margin-top: 8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 20px;
     color: #F77586;
     text-align: center;
+    margin-top: 6rem;
 }
 
 .menu-card {
@@ -20,6 +23,7 @@ menu-page {
     border: 1px solid #F77586;
     text-align: center;
     margin: 1rem;
+    min-height: 36vh;
 }
 
 .menu-card p {
@@ -40,8 +44,8 @@ menu-page {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 8rem;
-    margin-left: 3rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-to-cart {
@@ -68,15 +72,81 @@ menu-page {
     padding: 8px;
 }
 
+@media screen and (max-width: 868px) {
+    .menu-header {
+        order: -1;
+        margin-bottom: 20px;
+        margin-top: 10rem;
+        color: #F77586;
+        text-align: center;
+    }
+    .menu-cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .update-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     background-color: #F77586;
-    border: 1px solid #fbb040;
-    border-radius: 8px;
-    margin: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none;
 }
 
 .update-button:hover {
-    background-color: #008C93;
-    color: #fbb040;
-    border-color: #fbb040;
+    background-color: #36cef0;
+    color: white;
+}
+
+.edit-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F77586;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+.edit-details form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 220px;
+}
+
+.registerPage form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.edit-details form button {
+    margin: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FAEADB;
+    color: #F77586;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-details form button:hover {
+    background-color: #36cef0;
 }

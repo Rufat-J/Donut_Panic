@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { CartContext } from './CartContext.jsx'; // Importera CartContext
-
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { UserContext } from '../UserContext';
+import { CartContext } from './CartContext';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/navbar.css';
 
 export default function Navbar() {
-    const { cartItems } = useContext(CartContext); // Hämta cartItems från CartContext
+    const { user, logout } = useContext(UserContext);
+    const { cartItems } = useContext(CartContext);
 
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
@@ -35,12 +35,22 @@ export default function Navbar() {
                 </li>
             </ul>
             <div className="nav-buttons">
-                <NavLink to="/register" className="register-button">
-                    Register
-                </NavLink>
-                <NavLink to="/login" className="login-button">
-                    Log in
-                </NavLink>
+                {user ? (
+                    <>
+                        <button onClick={logout} className="logout-button login-button">
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <NavLink to="/register" className="register-button">
+                            Register
+                        </NavLink>
+                        <NavLink to="/login" className="login-button">
+                            Login
+                        </NavLink>
+                    </>
+                )}
 
                 <NavLink to="/cart" className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingCart} />

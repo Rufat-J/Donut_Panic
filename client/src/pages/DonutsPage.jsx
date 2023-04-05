@@ -1,15 +1,19 @@
-//DonutsPage.jsx
-
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import MenuCard from "../components/MenuCard.jsx";
+import {NavLink} from 'react-router-dom';
+
 
 export default function Menu() {
     const [menu, setMenu] = useState([]);
 
     async function fetchData() {
         try {
+
             const response = await fetch('/api/products');
             const data = await response.json();
+            for (let i = 0; i < data.length; i++) {
+                data[i].id = data[i]._id;
+            }
             setMenu(data);
         } catch (error) {
             console.error(error);
@@ -27,12 +31,12 @@ export default function Menu() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ id, ...updatedData })
+                body: JSON.stringify({id, ...updatedData})
             });
             const data = await response.json();
             setMenu((prevMenu) =>
                 prevMenu.map((menuItem) =>
-                    menuItem.id === id ? { ...menuItem, ...data.data } : menuItem
+                    menuItem.id === id ? {...menuItem, ...data.data} : menuItem
                 )
             );
         } catch (error) {
@@ -62,14 +66,17 @@ export default function Menu() {
 
     return (
         <div className="menu-page">
-            <h1 className="menu-header">Donuts</h1>
+            <div className="header-and-button">
+                <h1 className="menu-header">Donuts</h1>
+                <NavLink className="update-button" to="/update-menu"> Add new item</NavLink>
+            </div>
             <div className="menu-cards">
                 {donutMenu.map(menuItem => (
                     <MenuCard
                         key={menuItem.id}
                         menu={menuItem}
                         onUpdate={handleUpdate}
-                        onDelete={handleDelete}
+                        onDelete={() => handleDelete(menuItem.id)}
                     />
                 ))}
             </div>
