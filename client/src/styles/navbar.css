@@ -25,10 +25,11 @@
 }
 
 .navbar h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #F77586;
     margin: 0;
-
+    font-family: 'Pacifico', cursive;
+    /*font-family: 'Lobster Two', cursive;*/
     transition: all 0.3s ease-in-out;
 }
 
