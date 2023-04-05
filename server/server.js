@@ -34,6 +34,7 @@ app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRouter)
 
+
 app.listen(3000, ()=>{
     mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true }).then((result, error)=> {
         if(result){
