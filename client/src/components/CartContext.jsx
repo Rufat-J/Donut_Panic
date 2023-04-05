@@ -1,6 +1,8 @@
 import React, { useState, createContext } from 'react';
+import {useMenu} from "../MenuContext.jsx";
 
 export const CartContext = createContext();
+// const { donutMenu, drinkMenu, hotDrinksMenu } = useMenu()
 
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
