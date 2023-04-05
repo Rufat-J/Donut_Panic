@@ -10,6 +10,8 @@ import '../styles/navbar.css';
 export default function Navbar() {
     const { cartItems } = useContext(CartContext); // Hämta cartItems från CartContext
 
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
     return (
         <nav className="navbar">
             <NavLink to="/" className="nav-link">
@@ -42,7 +44,7 @@ export default function Navbar() {
 
                 <NavLink to="/cart" className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingCart} />
-                        <span className="cart-count">{cartItems.length}</span> {/* Visa antalet produkter i varukorgen */}
+                        <span className="cart-count">{totalItems}</span> {/* Visa antalet produkter i varukorgen */}
                 </NavLink>
             </div>
         </nav>

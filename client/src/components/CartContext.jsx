@@ -7,7 +7,6 @@ export const CartContext = createContext();
 
         const addToCart = (product, quantity) => {
             setCartItems([...cartItems, { ...product, quantity }]);
-            console.log(product)
         };
 
         const removeFromCart = (product) => {

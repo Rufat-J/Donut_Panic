@@ -9,7 +9,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
-import Cart from "./pages/CartPage.jsx"
+import Cart from "./pages/ShoppingCartPage.jsx"
 import { CartProvider} from "./components/CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
