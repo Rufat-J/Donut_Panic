@@ -33,6 +33,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
     const handleConfirmDelete = () => {
         onDelete(menu.id);
         setShowConfirmModal(false);
+        window.location.reload();
     };
 
     return (
