@@ -44,7 +44,7 @@ export default function Navbar() {
 
                 <NavLink to="/cart" className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingCart} />
-                        <span className="cart-count">{totalItems}</span> {/* Visa antalet produkter i varukorgen */}
+                        <span className="cart-count">{totalItems}</span>
                 </NavLink>
             </div>
         </nav>

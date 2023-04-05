@@ -4,7 +4,8 @@ import { CartContext } from '../components/CartContext';
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
 
-    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0);
+
 
     return (
         <div>
