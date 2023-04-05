@@ -35,6 +35,9 @@ function LoginPage() {
                         console.log(data.name + ' You are an admin!');
                     }
 
+                    // Store the token in local storage
+                    localStorage.setItem('auth_token', data.token);
+
                     // Redirect user to another page or perform other actions
                     navigate('/');
                 } else {
@@ -46,6 +49,7 @@ function LoginPage() {
                 setError('An error occurred, please try again');
             });
     }
+
 
     return (
         <div className="loginPage">

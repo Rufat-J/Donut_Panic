@@ -7,15 +7,17 @@ import {CartProvider} from "./CartContext.jsx";
 export default function Root() {
     return (
         <>
-            <UserProvider>
+
                 <CartProvider>
+                    <UserProvider>
                 <Navbar/>
 
                     <Outlet/>
 
                 <Footer/>
+                    </UserProvider>
                 </CartProvider>
-            </UserProvider>
+
         </>
     );
 }
