@@ -12,18 +12,20 @@ import DonutsPage from "./pages/DonutsPage"
 import Cart from "./pages/CartPage.jsx"
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
-
+import AddNewItemPage from './pages/AddNewItemPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements([
         <Route path="/" element={<Root/>} errorElement={<ErrorPage/>}>
             <Route index element={<Home/>}/>
-            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/donuts" element={<DonutsPage/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/cold-drinks" element={<ColdDrinksPage/>}/>
-            <Route path="/hot-drinks" element={<HotDrinksPage/>}/>
+            <Route path="/cart" element={<Cart/>} />
+            <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
+            <Route path="/hot-drinks" element={<HotDrinksPage />}/>
+            <Route path="/update-menu" element={<AddNewItemPage />}/>
+
         </Route>
 
     ])

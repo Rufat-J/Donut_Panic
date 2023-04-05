@@ -19,10 +19,25 @@
 .menu-card {
     width: 16rem;
     color: #008C93;
+    background-color: white;
+    border: 1px solid #F77586;
     text-align: center;
     margin: 1rem;
     min-height: 36vh;
-    background-color: #eae8ec;
+}
+
+.menu-card p {
+    font-size: 14px;
+    margin: 10px;
+}
+
+.menu-card h1 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.menu-card h2 {
+    font-size: 18px;
 }
 
 .menu-cards {
@@ -72,4 +87,66 @@
         justify-content: center;
         align-items: center;
     }
+}
+
+.update-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F77586;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.update-button:hover {
+    background-color: #36cef0;
+    color: white;
+}
+
+.edit-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F77586;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+.edit-details form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 220px;
+}
+
+.registerPage form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.edit-details form button {
+    margin: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FAEADB;
+    color: #F77586;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-details form button:hover {
+    background-color: #36cef0;
 }

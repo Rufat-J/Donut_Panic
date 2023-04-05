@@ -62,7 +62,6 @@
     background-color: #fbb040;
     transition: all 0.3s ease;
     transform: scaleX(1);
-
 }
 
 .nav-link::after {
