@@ -10,7 +10,6 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
 import Cart from "./pages/CartPage.jsx"
-import { CartProvider} from "./components/CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
 import AddNewItemPage from './pages/AddNewItemPage'
@@ -37,8 +36,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <CartProvider>
-            <RouterProvider router={router}/>
-        </CartProvider>
+                <RouterProvider router={router}/>
     </React.StrictMode>
 );

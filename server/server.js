@@ -5,8 +5,21 @@ import restaurantsRouter from './routes/restaurants-routes.js';
 import categoriesRoutes from './routes/categories-routes.js';
 import ordersRouter from "./routes/orders-routes.js";
 import usersRouter from "./routes/users-routes.js";
+import session from 'express-session';
 
 const app = express();
+
+app.use(session({
+    secret: '9;rr6na!/PDzmf2b=Zy+8H3f/yST!M423',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false, // set to true with https
+        httpOnly: true
+    }
+}))
+
+
 const conn = 'mongodb+srv://donut:12345@donut.vqtqaoi.mongodb.net/test';
 
 app.use(express.json())

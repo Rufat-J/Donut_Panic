@@ -1,16 +1,19 @@
-menu-page {
+.menu-page {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 2rem;
+    margin-bottom: 5rem;
     justify-content: center;
+
 }
 
 .menu-header {
     order: -1;
-    margin-top: 8rem;
+    margin-bottom: 20px;
     color: #F77586;
     text-align: center;
+    margin-top: 6rem;
 }
 
 .menu-card {
@@ -20,6 +23,7 @@ menu-page {
     border: 1px solid #F77586;
     text-align: center;
     margin: 1rem;
+    min-height: 36vh;
 }
 
 .menu-card p {
@@ -40,8 +44,8 @@ menu-page {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 8rem;
-    margin-left: 3rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-to-cart {
@@ -66,6 +70,23 @@ menu-page {
     border-top: 3px solid rgba(1, 167, 175, 0.7);
     border-radius: 1px;
     padding: 8px;
+}
+
+@media screen and (max-width: 868px) {
+    .menu-header {
+        order: -1;
+        margin-bottom: 20px;
+        margin-top: 10rem;
+        color: #F77586;
+        text-align: center;
+    }
+    .menu-cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .update-button {
