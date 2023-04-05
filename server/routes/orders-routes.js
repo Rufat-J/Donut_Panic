@@ -7,7 +7,7 @@ const ordersRouter = Router();
 const ordersSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users"
+        ref: "user"
     },
     restaurant: {
         type: mongoose.Schema.Types.ObjectId,
