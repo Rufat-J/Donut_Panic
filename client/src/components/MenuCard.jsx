@@ -2,10 +2,12 @@ import Card from 'react-bootstrap/Card';
 import AddToCartButton from "./AddToCartButton.jsx";
 import EditMenuModal from "./EditMenuModal.jsx";
 import { useState } from "react";
+import ConfirmDeleteModal from "./ConfirmDeleteModal.jsx";
 
 export default function MenuCard({ menu, onUpdate, onDelete }) {
     const ingredientList = menu.ingredients.join(", ");
     const [showEditModal, setShowEditModal] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
     const handleEditClick = () => {
         setShowEditModal(true);
@@ -21,7 +23,17 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
     };
 
     const handleDeleteClick = () => {
+        setShowConfirmModal(true);
+    };
+
+    const handleCloseConfirmModal = () => {
+        setShowConfirmModal(false);
+    };
+
+    const handleConfirmDelete = () => {
         onDelete(menu.id);
+        setShowConfirmModal(false);
+        window.location.reload();
     };
 
     return (
@@ -48,6 +60,13 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
                 handleSave={handleUpdateClick}
                 menu={menu}
             />
+            {showConfirmModal && (
+                <ConfirmDeleteModal
+                    show={showConfirmModal}
+                    onClose={handleCloseConfirmModal}
+                    onConfirm={handleConfirmDelete}
+                />
+            )}
         </div>
     );
 }

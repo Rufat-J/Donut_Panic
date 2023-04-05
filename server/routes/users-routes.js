@@ -77,6 +77,38 @@ usersRouter.patch("/:id", async (req, res) => {
     }
 });
 
+usersRouter.post('/register', async (req, res) => {
+    const { name, email, password, phone, isAdmin } = req.body;
+
+    try {
+        // check if user with same email already exists
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            // if user already exists, throw an error
+            throw new Error('User already exists with this email');
+        }
+
+        // if user does not already exist, create a new user
+        const newUser = new User({
+            name,
+            email,
+            password,
+            phone,
+            isAdmin
+        });
+
+        // save the new user to the database
+        const savedUser = await newUser.save();
+
+        // send a success response to the client
+        res.status(201).json(savedUser);
+    } catch (err) {
+        // if an error occurred, send an error response to the client
+        res.status(400).json({ message: err.message });
+    }
+});
+
 usersRouter.post("/login", async (req, res) => {
     try {
         const { email, password, } = req.body;
