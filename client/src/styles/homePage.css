@@ -6,4 +6,7 @@ body main .homePage {
     color: #c89797;
 }
 
-
+.homePageImg {
+    width: 100%;,
+    height 100%
+}

@@ -10,6 +10,8 @@ export default function Navbar() {
     const { user, logout } = useContext(UserContext);
     const { cartItems } = useContext(CartContext);
 
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
     return (
         <nav className="navbar">
             <NavLink to="/" className="nav-link">
@@ -52,7 +54,7 @@ export default function Navbar() {
 
                 <NavLink to="/cart" className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingCart} />
-                    <span className="cart-count">{cartItems.length}</span>
+                        <span className="cart-count">{totalItems}</span>
                 </NavLink>
             </div>
         </nav>
