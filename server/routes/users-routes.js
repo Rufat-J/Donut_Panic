@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const usersRouter = Router();
 
 const userSchema = new Schema({
-    fullName: String,
+    name: String,
     email: String,
     password: String,
     phone: String,
@@ -17,7 +17,7 @@ const UserModel = mongoose.model("users", userSchema);
 usersRouter.post("/", async (req, res) => {
     try {
         const user = new UserModel({
-            fullName: req.body.fullName,
+            name: req.body.name,
             email: req.body.email,
             password: await bcrypt.hash(req.body.password, 10),
             phone: req.body.phone,

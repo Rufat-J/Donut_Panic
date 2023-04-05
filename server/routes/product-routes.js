@@ -13,13 +13,13 @@ const productsSchema = new Schema({
   ingredients: Array,
 });
 
-mongoose.model('Products', productsSchema);
+mongoose.model('products', productsSchema);
 
 //const Products = mongoose.model('Products', productsSchema);
 
 productsRouter.post('/', async (req, res) => {
   try {
-    const product = new mongoose.model('Products')({
+    const product = new mongoose.model('products')({
       name: req.body.name,
       category: req.body.category,
       price: req.body.price,
@@ -29,7 +29,7 @@ productsRouter.post('/', async (req, res) => {
     });
     const createdProduct = await product.save();
 
-    res.status(201).json({ message: 'Product created', data: createdProduct });
+    res.status(201).json(createdProduct);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -37,7 +37,7 @@ productsRouter.post('/', async (req, res) => {
 
 productsRouter.get('/', async (req, res) => {
   try {
-    let products = await mongoose.models.Products.find();
+    let products = await mongoose.models.products.find();
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json(error);
@@ -47,7 +47,7 @@ productsRouter.get('/', async (req, res) => {
 
 productsRouter.get('/:id', async (req, res) => {
   try {
-    const product = await mongoose.models.Products.findById(req.params.id);
+    const product = await mongoose.models.products.findById(req.params.id);
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json(error);
@@ -55,12 +55,10 @@ productsRouter.get('/:id', async (req, res) => {
 });
 
 
-
-
 productsRouter.delete('/:id', async (req, res) => {
   try {
-    await mongoose.models.Products.findByIdAndDelete(req.params.id);
-    const result = await mongoose.models.Products.findById(req.params.id);
+    await mongoose.models.products.findByIdAndDelete(req.params.id);
+    const result = await mongoose.models.products.findById(req.params.id);
     res.json({ message: 'deleted', result });
   } catch (error) {
     res.status(500).json(error);
@@ -69,18 +67,19 @@ productsRouter.delete('/:id', async (req, res) => {
 
 productsRouter.patch('/:id', async (req, res) => {
   try {
-    const updatedProducts = await mongoose.models.Products.findByIdAndUpdate(
+    const updatedProducts = await mongoose.models.products.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
     );
-    res.status(200).json({
-      message: 'Updated',
-      data: updatedProducts,
-    });
+    res.status(200).json(updatedProducts);
   } catch (error) {
     res.status(500).json(error);
   }
 });
 
 export default productsRouter;
+
+
+
+
