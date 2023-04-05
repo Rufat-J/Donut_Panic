@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/registerPage.css';
-import '../App.css'
+import '../App.css';
+import {useNavigate} from "react-router-dom";
 
 function RegisterPage() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
+    const navigate = useNavigate()
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -19,6 +21,7 @@ function RegisterPage() {
             .then(response => {
                 if(response.ok) {
                     console.log('Registration successful')
+                    navigate('/login')
                 } else {
                     console.error('Registration failed')
                 }
