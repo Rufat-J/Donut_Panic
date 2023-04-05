@@ -4,6 +4,7 @@ import MenuCard from '../components/MenuCard.jsx';
 import '../styles/menuPage.css'
 
 export default function HotDrinksPage() {
+
     const { hotDrinksMenu, handleUpdate, handleDelete } = useMenu();
 
     return (
