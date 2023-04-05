@@ -5,7 +5,6 @@
     margin-top: 2rem;
     margin-bottom: 5rem;
     justify-content: center;
-
 }
 
 .menu-header {
@@ -23,7 +22,11 @@
     border: 1px solid #F77586;
     text-align: center;
     margin: 1rem;
-    min-height: 36vh;
+    height: 42rem; /* set a fixed height */
+    overflow: hidden; /* hide any content that exceeds the height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* align the menu-card-buttons section at the bottom */
 }
 
 .menu-card p {
@@ -68,9 +71,11 @@
 .item-price {
     border-bottom: 1px solid #008C93;
     border-top: 3px solid rgba(1, 167, 175, 0.7);
-    border-radius: 1px;
+    border-radius: 100px;
     padding: 8px;
+    margin: 0 35px 5px 35px;
 }
+
 
 @media screen and (max-width: 868px) {
     .menu-header {
@@ -97,7 +102,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
-    margin: 10px;
+    margin: 10px 10px 15px 10px;
     text-decoration: none;
 }
 
