@@ -55,8 +55,6 @@ productsRouter.get('/:id', async (req, res) => {
 });
 
 
-
-
 productsRouter.delete('/:id', async (req, res) => {
   try {
     await mongoose.models.Products.findByIdAndDelete(req.params.id);

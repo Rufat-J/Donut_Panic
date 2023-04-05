@@ -20,56 +20,61 @@ export default function EditMenuModal({ menu, show, handleClose, handleSave }) {
     };
 
     return (
-        <div className="edit-details" style={{ display: show ? 'block' : 'none' }}>
-            <div>
-                <h3>Edit Menu Item</h3>
-            </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Name:</label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="price">Price:</label>
-                        <input
-                            type="number"
-                            id="price"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="ingredients">Ingredients:</label>
-                        <input
-                            type="text"
-                            id="ingredients"
-                            value={ingredients}
-                            onChange={(e) => setIngredients(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="image">Image URL:</label>
-                        <input
-                            type="text"
-                            id="image"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit">
-                        Save Changes
-                    </button>
-                </form>
+        <div
+            className="modal-overlay"
+            style={{ display: show ? "block" : "none" }}
+            onClick={handleClose}
+        >
+            <div className="edit-details" onClick={(e) => e.stopPropagation()}>
+                <div>
+                    <h3>Edit Menu Item</h3>
+                </div>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="price">Price:</label>
+                            <input
+                                type="number"
+                                id="price"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="ingredients">Ingredients:</label>
+                            <input
+                                type="text"
+                                id="ingredients"
+                                value={ingredients}
+                                onChange={(e) => setIngredients(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="image">Image URL:</label>
+                            <input
+                                type="text"
+                                id="image"
+                                value={image}
+                                onChange={(e) => setImage(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <button type="submit">Save Changes</button>
+                        <button type="button" onClick={handleClose}>Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     );
