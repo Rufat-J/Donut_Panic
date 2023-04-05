@@ -7,7 +7,6 @@ import {MenuProvider} from "../menuContext.jsx";
 
 export default function Root() {
     return (
-        <>
             <UserProvider>
                 <MenuProvider>
                     <CartProvider>
@@ -17,6 +16,5 @@ export default function Root() {
                     </CartProvider>
                 </MenuProvider>
             </UserProvider>
-        </>
     );
 }
