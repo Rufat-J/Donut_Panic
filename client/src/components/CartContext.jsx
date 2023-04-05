@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
     const addToCart = (product, quantity) => {
         console.log(product)
         //642a81761e69f5f5429a0ac7   ${product._id}
-        fetch(`/api/products/642a81761e69f5f5429a0ac7`)
+        fetch(`/api/products/${product._id}`)
             .then(response => response.json())
             .then(data => {
                 setCartItems([...cartItems, { ...data, quantity }]);
