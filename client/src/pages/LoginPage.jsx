@@ -26,7 +26,7 @@ function LoginPage() {
             .then(data => {
                 if (data.success) {
                     console.log('Login successful!');
-                    login(data.userID);// Set the user data in context
+                    login(data.userID, data.isAdmin);// Set the user data in context
                     console.log(data.name)
                     console.log(data.isAdmin);
                     // Check if user is an admin

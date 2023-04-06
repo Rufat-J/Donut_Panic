@@ -11,7 +11,7 @@ export default function Navbar() {
     const { cartItems } = useContext(CartContext);
 
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
+    console.log(user);
     return (
         <nav className="navbar">
             <NavLink to="/" className="nav-link">
