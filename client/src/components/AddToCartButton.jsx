@@ -15,11 +15,6 @@ export default function AddToCartButton({ product }) {
         }
     };
 
-    const handleAddToCart = () => {
-        addToCart(product, quantity);
-        console.log(addToCart)
-    };
-
     return (
         <div>
             <div className="add-to-cart">
@@ -31,7 +26,7 @@ export default function AddToCartButton({ product }) {
                     +
                 </button>
             </div>
-            <button onClick={handleAddToCart}>Add to Cart</button>
+            <button onClick={e => addToCart(product, quantity) }>Add to Cart</button>
         </div>
     );
 }
