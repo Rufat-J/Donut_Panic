@@ -2,6 +2,10 @@
     padding: 2rem;
 }
 
+.orders-page h1 {
+    color: #F77586;
+}
+
 .orders-table {
     border-collapse: collapse;
     width: 100%;

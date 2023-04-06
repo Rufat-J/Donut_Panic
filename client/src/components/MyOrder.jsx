@@ -1,3 +1,6 @@
-export default function () {
-    return <h1>You do not have anything here right now</h1>
+import { useState, useEffect } from 'react';
+import '../styles/ordersPage.css';
+
+export default function MyOrder() {
+    return <h1>My ordered food...</h1>
 }
