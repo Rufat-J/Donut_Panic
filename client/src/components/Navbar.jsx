@@ -9,7 +9,7 @@ import '../styles/navbar.css';
 export default function Navbar() {
     const { user, logout } = useContext(UserContext);
     const { cartItems } = useContext(CartContext);
-
+    console.log(user)
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
     return (
         <nav className="navbar">
@@ -27,19 +27,25 @@ export default function Navbar() {
                         Hot Drinks
                     </NavLink>
                 </li>
-                {user?.isAdmin && (
                     <li>
                         <NavLink to="/cold-drinks" className="nav-link">
                             Cold Drinks
                         </NavLink>
                     </li>
+                {!user?.isAdmin && (
+                    <li>
+                        <NavLink to="/my-order" className="nav-link">
+                            My order
+                        </NavLink>
+                    </li>
                 )}
-
+                {user?.isAdmin && (
                 <li>
                     <NavLink to="/orders" className="nav-link">
                         Orders
                     </NavLink>
                 </li>
+                )}
             </ul>
             <div className="nav-buttons">
                 {user ? (
