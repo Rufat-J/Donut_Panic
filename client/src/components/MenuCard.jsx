@@ -46,7 +46,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
             <h2 className="item-price">Price: ${menu.price}</h2>
             <div className="menu-card-buttons">
                 <div className="add-to-cart">
-                    <AddToCartButton />
+                    <AddToCartButton product={menu} />
                 </div>
                 <div>
                     <button className="update-button" onClick={handleEditClick}>Edit</button>

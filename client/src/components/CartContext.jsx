@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
     const addToCart = (product, quantity) => {
-        console.log(product)
+        //console.log(product)
         //642a81761e69f5f5429a0ac7   ${product._id}
         fetch(`/api/products/${product._id}`)
             .then(response => response.json())
