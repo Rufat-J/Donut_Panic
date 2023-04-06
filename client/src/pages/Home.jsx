@@ -15,7 +15,8 @@ export default function Users() {
 
     return (
         <div className="homePageImg">
-            <img src={'https://wallpaperaccess.com/full/1312821.jpg'} />
+            <img width="100%" height="100%" className="background" src="https://images4.alphacoders.com/941/941939.jpg" alt=""/>
+
         </div>
     );
 }
