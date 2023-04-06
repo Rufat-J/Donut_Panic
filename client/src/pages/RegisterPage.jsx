@@ -4,11 +4,12 @@ import '../App.css';
 import {useNavigate} from "react-router-dom";
 
 function RegisterPage() {
-    const [fullName, setFullName] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -16,18 +17,19 @@ function RegisterPage() {
         fetch('/api/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({fullName, email, password, phone})
+            body: JSON.stringify({name, email, password, phone})
         })
             .then(response => {
                 if(response.ok) {
                     console.log('Registration successful')
                     navigate('/login')
                 } else {
+                    setError('Account already exists');
                     console.error('Registration failed')
                 }
             })
             .catch(error => console.error(error))
-        console.log(`Full Name: ${fullName}, Email: ${email}, Password: ${password}, Phone: ${phone}`);
+        console.log(`Full Name: ${name}, Email: ${email}, Password: ${password}, Phone: ${phone}`);
     }
 
     return (
@@ -36,7 +38,7 @@ function RegisterPage() {
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Full Name: </span>
-                    <input type="text" name="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+                    <input type="text" name="fullName" value={name} onChange={(e) => setName(e.target.value)} />
                 </label>
                 <br />
                 <label>
@@ -55,6 +57,7 @@ function RegisterPage() {
                 </label>
                 <br />
                 <button type="submit">Register</button>
+                {error && <div className="error">{error}</div>}
             </form>
         </div>
     );

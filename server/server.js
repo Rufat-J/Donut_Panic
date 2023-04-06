@@ -15,7 +15,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         secure: false, // set to true with https
-        httpOnly: true
+        httpOnly: true,
+        maxAge: 900000 // 15 minutes in milliseconds
     }
 }))
 
@@ -33,6 +34,7 @@ app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRouter)
 app.use('/api/orders', ordersRouter)
+
 
 app.listen(3000, ()=>{
     mongoose.connect(conn, { useNewUrlParser: true, useUnifiedTopology: true }).then((result, error)=> {
