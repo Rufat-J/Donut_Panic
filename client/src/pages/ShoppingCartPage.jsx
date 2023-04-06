@@ -13,22 +13,20 @@ export default function ShoppingCartPage() {
     const [showOrdersPage, setShowOrdersPage] = useState(false);
     const [order, setOrder] = useState([])
 
-    const confirmOrder = useCallback(() => {
-        fetch('/api/orders', {
+    const confirmOrder = useCallback(async() => {
+        console.log(cartItems)
+        const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cartItems, totalPrice }),
             credentials: 'include',
         })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setOrder(data);
-                setShowOrdersPage(true);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        const result = await response.json()
+        if(result){
+            setOrder(result);
+            setShowOrdersPage(true);
+            console.log(result)
+        }
     }, [cartItems, totalPrice]);
 
     const handleConfirmOrder = (event) => {
@@ -44,7 +42,7 @@ export default function ShoppingCartPage() {
             ) : (
                 <div>
                     {cartItems.map((item) => (
-                        <div key={item.id}>
+                        <div key={item._id}>
                             <h3>Product: {item.name}</h3>
                             <p>Quantity: {item.quantity}</p>
                             <p>Price: ${item.price}</p>

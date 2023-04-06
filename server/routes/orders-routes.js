@@ -33,7 +33,7 @@ ordersRouter.post("/", async (req, res) => {
             user: req.body.user,
             restaurant: req.body.restaurant,
             total_price: req.body.total_price,
-            products: req.body.products,
+            products: req.body.cartItems,
             //pickup_time: req.body.pickup_time,
             //order_time: req.body.order_time,
         });
