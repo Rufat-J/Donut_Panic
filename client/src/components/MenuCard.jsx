@@ -55,12 +55,12 @@ console.log(user)
                 </div>
 
                 <div>
-                    {user.isAdmin ? (
+                    {user?.isAdmin && (
                         <div>
                             <button className="update-button" onClick={handleEditClick}>Edit</button>
                             <button className="update-button" onClick={handleDeleteClick}>Delete</button>
                         </div>
-                    ) : null}
+                    )}
                 </div>
             </div>
             <EditMenuModal
