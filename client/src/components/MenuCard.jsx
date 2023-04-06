@@ -1,12 +1,17 @@
 import AddToCartButton from "./AddToCartButton.jsx";
 import EditMenuModal from "./EditMenuModal.jsx";
-import { useState } from "react";
+import {useContext, useState} from "react";
 import ConfirmDeleteModal from "./ConfirmDeleteModal.jsx";
+import { UserContext } from '../UserContext';
+
 
 export default function MenuCard({ menu, onUpdate, onDelete }) {
     const ingredientList = menu.ingredients.join(", ");
     const [showEditModal, setShowEditModal] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+    const { user } = useContext(UserContext);
+console.log(user)
 
     const handleEditClick = () => {
         setShowEditModal(true);
@@ -48,9 +53,14 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
                 <div className="add-to-cart">
                     <AddToCartButton product={menu} />
                 </div>
+
                 <div>
-                    <button className="update-button" onClick={handleEditClick}>Edit</button>
-                    <button className="update-button" onClick={handleDeleteClick}>Delete</button>
+                    {user.isAdmin ? (
+                        <div>
+                            <button className="update-button" onClick={handleEditClick}>Edit</button>
+                            <button className="update-button" onClick={handleDeleteClick}>Delete</button>
+                        </div>
+                    ) : null}
                 </div>
             </div>
             <EditMenuModal
