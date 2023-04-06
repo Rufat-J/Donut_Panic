@@ -19,7 +19,7 @@ categoriesRouter.post('/', async (req, res) => {
 
         const createdCategory = await category.save();
 
-        res.status(201).json({ message: 'Category created', data: createdCategory });
+        res.status(201).json(createdCategory);
     } catch (error) {
         console.log(error);
         res.status(500).json(error);
@@ -66,9 +66,7 @@ categoriesRouter.patch("/:id", async (req, res) => {
             req.body,
             { new: true }
         );
-        res.status(200).json({
-            message : "Updated",
-            data: updatedCategories});
+        res.status(200).json(updatedCategories);
     } catch (error) {
         res.status(500).json(error);
     }

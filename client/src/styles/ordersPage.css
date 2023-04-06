@@ -1,0 +1,44 @@
+.orders-page {
+    padding: 2rem;
+}
+
+.orders-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table th,
+.orders-table td {
+    border: 1px solid #dfe3e8;
+    padding: 1rem;
+    text-align: left;
+}
+
+.orders-table th {
+    background-color: #f6f8fa;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.orders-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.orders-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.orders-table .order-id {
+    color: #0077cc;
+}
+
+.orders-table .customer-name {
+    font-weight: bold;
+}
+
+.orders-table .order-total {
+    font-weight: bold;
+}

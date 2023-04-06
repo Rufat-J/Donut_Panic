@@ -10,7 +10,7 @@ const userSchema = new Schema({
     email: {type: String, unique: true},
     password: String,
     phone: String,
-    isAdmin: Boolean,
+    isAdmin: {type: Boolean, default: false}
 });
 
 const UserModel = mongoose.model("users", userSchema);
@@ -22,6 +22,7 @@ usersRouter.post("/", async (req, res) => {
             email: req.body.email,
             password: await bcrypt.hash(req.body.password, 10),
             phone: req.body.phone,
+            isAdmin: req.body.isAdmin
         });
 
         const createdUser = await user.save();
@@ -81,16 +82,16 @@ usersRouter.post('/register', async (req, res) => {
     const { name, email, password, phone, isAdmin } = req.body;
 
     try {
-        // check if user with same email already exists
-        const existingUser = await User.findOne({ email });
+// check if user with same email already exists
+        const existingUser = await UserModel.findOne({ email });
 
         if (existingUser) {
-            // if user already exists, throw an error
+// if user already exists, throw an error
             throw new Error('User already exists with this email');
         }
 
-        // if user does not already exist, create a new user
-        const newUser = new User({
+// if user does not already exist, create a new user
+        const newUser = new UserModel({
             name,
             email,
             password,
@@ -98,13 +99,13 @@ usersRouter.post('/register', async (req, res) => {
             isAdmin
         });
 
-        // save the new user to the database
+// save the new user to the database
         const savedUser = await newUser.save();
 
-        // send a success response to the client
+// send a success response to the client
         res.status(201).json(savedUser);
     } catch (err) {
-        // if an error occurred, send an error response to the client
+// if an error occurred, send an error response to the client
         res.status(400).json({ message: err.message });
     }
 });
@@ -115,7 +116,7 @@ usersRouter.post("/login", async (req, res) => {
 
         const user = await UserModel.findOne({ email });
         if (!user) {
-            // User not found
+// User not found
             return res
                 .status(401)
                 .json({ success: false, message: "Invalid email or password" });
@@ -123,7 +124,7 @@ usersRouter.post("/login", async (req, res) => {
 
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            // Incorrect password
+// Incorrect password
             return res
                 .status(401)
                 .json({ success: false, message: "Invalid email or password" });
@@ -131,7 +132,7 @@ usersRouter.post("/login", async (req, res) => {
 
         const token = jwt.sign({id: user._id}, "secret");
 
-        // User is authenticated
+// User is authenticated
         res.json({
             success:true,
             token,
