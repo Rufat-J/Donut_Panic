@@ -1,17 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function Users() {
-    const [users, setUsers] = useState([]);
-
-    async function fetchData() {
-        const response = await fetch('/api/users');
-        const data = await response.json();
-        setUsers(data);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+export default function Home() {
 
     return (
         <div className="homePageImg">

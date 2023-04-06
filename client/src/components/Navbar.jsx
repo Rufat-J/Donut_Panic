@@ -9,6 +9,7 @@ import '../styles/navbar.css';
 export default function Navbar() {
     const { user, logout } = useContext(UserContext);
     const { cartItems } = useContext(CartContext);
+    console.log(user)
 
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
     return (
