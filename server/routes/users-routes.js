@@ -133,7 +133,8 @@ usersRouter.post("/login", async (req, res) => {
 
         // User is authenticated
         res.json({
-            success:true, token,
+            success:true,
+            token,
             userID: user._id,
             name: user.name,
             isAdmin: user.isAdmin});

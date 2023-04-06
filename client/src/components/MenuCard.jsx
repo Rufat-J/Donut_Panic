@@ -1,4 +1,3 @@
-import Card from 'react-bootstrap/Card';
 import AddToCartButton from "./AddToCartButton.jsx";
 import EditMenuModal from "./EditMenuModal.jsx";
 import { useState } from "react";
@@ -38,7 +37,7 @@ export default function MenuCard({ menu, onUpdate, onDelete }) {
 
     return (
         <div className="menu-card">
-            <Card.Img src={menu.image} />
+            <img className="menu-pic" src={menu.image} />
             <div>
                 <h1 className="menu-item">{menu.name}</h1>
                 <p className="ingredients">{ingredientList}</p>
