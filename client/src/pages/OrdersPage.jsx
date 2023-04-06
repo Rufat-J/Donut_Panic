@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import '../styles/ordersPage.css'
+import {UserContext} from "../UserContext.jsx";
 
-export default function OrdersPage() {
+export default function OrdersPage({ totalPrice, cartItems }) {
+
     const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-          fetch('/api/orders')
-              .then(response => response.json())
-              .then(data => {
-                  console.log(data)
-                  setOrders(data);
-              })
-              .catch(error => {
-                  console.log(error);
-              });
-      }, []);
+    const  { user } = useContext(UserContext)
+
 
 
 
@@ -35,8 +28,8 @@ export default function OrdersPage() {
                     <tr key={order._id}>
                         <td>{order._id}</td>
                         <td>{order.user.name}</td>
-                        <td>{order.products.map(product => <li>{product.name}</li>)}</td>
-                        <td>{order.total_price}:-</td>
+                        <td>{cartItems.map(cartItem => <li>{cartItem.name}</li>)}</td>
+                        <td>${totalPrice}</td>
                     </tr>
 
 

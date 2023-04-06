@@ -1,11 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { CartContext } from '../components/CartContext';
+import OrdersPage from "./OrdersPage.jsx";
 
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
 
-    const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0).toFixed(2);
+    const totalPrice = cartItems.reduce(
+        (total, item) => total + parseFloat(item.price) * item.quantity,
+        0
+    ).toFixed(2);
 
+    const [showOrdersPage, setShowOrdersPage] = useState(false);
+    const [order, setOrder] = useState([])
+
+    const confirmOrder = useCallback(() => {
+        fetch('/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cartItems, totalPrice }),
+            credentials: 'include',
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setOrder(data);
+                setShowOrdersPage(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [cartItems, totalPrice]);
+
+    const handleConfirmOrder = (event) => {
+        event.preventDefault();
+        confirmOrder();
+    };
 
     return (
         <div>
@@ -22,9 +51,11 @@ export default function ShoppingCartPage() {
                             <button onClick={() => removeFromCart(item)}>Remove</button>
                         </div>
                     ))}
-                    <h3>Total Price: ${totalPrice}</h3>
+                    <p>Total Price: ${totalPrice}</p>
+                    <button onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
             )}
+            {showOrdersPage && <OrdersPage order={order} />}
         </div>
     );
 }

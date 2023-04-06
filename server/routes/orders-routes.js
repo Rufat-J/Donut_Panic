@@ -27,6 +27,7 @@ const OrdersModel = mongoose.model("Orders", ordersSchema);
 
 ordersRouter.post("/", async (req, res) => {
     try {
+        console.log(req.body)
         const order = new OrdersModel({
             status: req.body.status,
             user: req.body.user,
