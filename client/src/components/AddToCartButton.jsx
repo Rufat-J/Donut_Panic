@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { CartContext } from './CartContext.jsx';
 
 export default function AddToCartButton({ product }) {
-    console.log("tyui", product)
     const [quantity, setQuantity] = useState(0);
     const { addToCart } = useContext(CartContext);
 
