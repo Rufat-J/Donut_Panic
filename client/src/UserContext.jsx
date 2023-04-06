@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
 
     const login = (userID, isAdmin) => {
         setUser({userID, isAdmin});
-        sessionStorage.setItem('user', JSON.stringify(userID, isAdmin));
+        sessionStorage.setItem('user', JSON.stringify({userID, isAdmin}));
     };
 
     const logout = () => {
