@@ -8,6 +8,7 @@ export default function OrdersPage() {
           fetch('/api/orders')
               .then(response => response.json())
               .then(data => {
+                  console.log(data)
                   setOrders(data);
               })
               .catch(error => {
@@ -25,7 +26,7 @@ export default function OrdersPage() {
                 <tr>
                     <th>Order ID</th>
                     <th>Customer Name</th>
-                    <th>Order Details</th>
+                    <th>Products</th>
                     <th>Order Total</th>
                 </tr>
                 </thead>
