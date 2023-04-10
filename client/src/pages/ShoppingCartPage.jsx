@@ -53,7 +53,9 @@ export default function ShoppingCartPage() {
                     <button onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
             )}
-            {showOrdersPage && <OrdersPage order={order} />}
+            {showOrdersPage && (
+                <OrdersPage order={order} totalPrice={totalPrice} cartItems={cartItems} />
+            )}
         </div>
     );
 }

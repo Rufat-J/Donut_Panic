@@ -1,19 +1,14 @@
-import React, {useState, useEffect, useContext} from 'react';
-import '../styles/ordersPage.css'
+import React, {useContext} from 'react';
+import '../styles/ordersPage.css';
 import {UserContext} from "../UserContext.jsx";
 
-export default function OrdersPage({ totalPrice, cartItems }) {
-
-    const [orders, setOrders] = useState([]);
-
-    const  { user } = useContext(UserContext)
-
-
-
-
+export default function OrdersPage({ order, totalPrice, cartItems }) {
+    const { user: {name} } = useContext(UserContext);
+    console.log(name)
     return (
         <div className="orders-page">
-            <h1>Orders</h1>
+            <h1>Order Confirmation</h1>
+            <p>Thank you for your order!</p>
             <table className="orders-table">
                 <thead>
                 <tr>
@@ -24,16 +19,12 @@ export default function OrdersPage({ totalPrice, cartItems }) {
                 </tr>
                 </thead>
                 <tbody>
-                {orders.map(order => (
-                    <tr key={order._id}>
-                        <td>{order._id}</td>
-                        <td>{order.user.name}</td>
-                        <td>{cartItems.map(cartItem => <li>{cartItem.name}</li>)}</td>
-                        <td>${totalPrice}</td>
-                    </tr>
-
-
-                ))}
+                <tr>
+                    <td>{order._id}</td>
+                    <td>{name}</td>
+                    <td>{cartItems.map((cartItem) => <li key={cartItem._id}>{cartItem.name}</li>)}</td>
+                    <td>${totalPrice}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
