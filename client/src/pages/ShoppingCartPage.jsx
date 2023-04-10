@@ -1,11 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { CartContext } from '../components/CartContext';
+import OrdersPage from "./OrdersPage.jsx";
 
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
 
-    const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0).toFixed(2);
+    const totalPrice = cartItems.reduce(
+        (total, item) => total + parseFloat(item.price) * item.quantity,
+        0
+    ).toFixed(2);
 
+    const [showOrdersPage, setShowOrdersPage] = useState(false);
+    const [order, setOrder] = useState([])
+
+    const confirmOrder = useCallback(async() => {
+        console.log(cartItems)
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cartItems, totalPrice }),
+            credentials: 'include',
+        })
+        const result = await response.json()
+        if(result){
+            setOrder(result);
+            setShowOrdersPage(true);
+            console.log(result)
+        }
+    }, [cartItems, totalPrice]);
+
+    const handleConfirmOrder = (event) => {
+        event.preventDefault();
+        confirmOrder();
+    };
 
     return (
         <div>
@@ -15,15 +42,19 @@ export default function ShoppingCartPage() {
             ) : (
                 <div>
                     {cartItems.map((item) => (
-                        <div key={item.id}>
+                        <div key={item._id}>
                             <h3>Product: {item.name}</h3>
                             <p>Quantity: {item.quantity}</p>
                             <p>Price: ${item.price}</p>
                             <button onClick={() => removeFromCart(item)}>Remove</button>
                         </div>
                     ))}
-                    <h3>Total Price: ${totalPrice}</h3>
+                    <p>Total Price: ${totalPrice}</p>
+                    <button onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
+            )}
+            {showOrdersPage && (
+                <OrdersPage order={order} totalPrice={totalPrice} cartItems={cartItems} />
             )}
         </div>
     );
