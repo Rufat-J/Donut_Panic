@@ -11,16 +11,21 @@ const ordersSchema = new Schema({
     },
     restaurant: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "restaurants"
+        ref: "restaurants",
     },
     total_price: Number,
     status: String,
     // pickup_time: Date,
     // order_time: Date,
-    products: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "products"
-    }],
+    products: [
+        {
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "products",
+            },
+            quantity: Number,
+        },
+    ],
 });
 
 const OrdersModel = mongoose.model("Orders", ordersSchema);
@@ -34,6 +39,7 @@ ordersRouter.post("/", async (req, res) => {
             restaurant: req.body.restaurant,
             total_price: req.body.totalPrice,
             products: req.body.cartItems,
+            quantity: req.body.quantity
             //pickup_time: req.body.pickup_time,
             //order_time: req.body.order_time,
         });

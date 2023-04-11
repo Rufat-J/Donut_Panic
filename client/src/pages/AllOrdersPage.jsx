@@ -7,6 +7,7 @@ export default function AllOrdersPage() {
 
     console.log(orders)
 
+
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/orders');
@@ -38,13 +39,14 @@ export default function AllOrdersPage() {
                             <td>{order.user ? order.user.name : ''}</td>
                             <td>
                                 {order.products.map((product) => (
-                                    <div>
+                                    <div key={product._id}>
                                         <li>
                                             <span>{product.name}</span>
                                             <span>{` x${product.quantity}`}</span>
                                         </li>
                                     </div>
                                 ))}
+
                             </td>
                             <td>{order.total_price}</td>
                             <td>{order.status}</td>
