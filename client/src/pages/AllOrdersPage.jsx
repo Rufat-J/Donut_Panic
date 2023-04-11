@@ -69,7 +69,17 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                         <tr key={order._id}>
                             <td>{order._id}</td>
                             <td>{order.user ? order.user.name : ''}</td>
-                            <td>{order.products.map((product) => product.name).join(', ')}</td>
+                            <td>
+                                {order.products.map((product) => (
+                                    <div key={product._id}>
+                                        <li>
+                                            <span>{product.name}</span>
+                                            <span>{` x${product.quantity}`}</span>
+                                        </li>
+                                    </div>
+                                ))}
+
+                            </td>
                             <td>{order.total_price}</td>
                             <td>{order.status}</td>
                             <td>
