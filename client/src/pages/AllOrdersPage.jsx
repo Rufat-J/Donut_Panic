@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import '../styles/allOrdersPage.css';
 
 
@@ -13,6 +13,7 @@ export default function AllOrdersPage() {
             const ordersData = await response.json();
             setOrders(ordersData);
         }
+
         fetchData();
     }, []);
 
@@ -35,7 +36,16 @@ export default function AllOrdersPage() {
                         <tr key={order._id}>
                             <td>{order._id}</td>
                             <td>{order.user ? order.user.name : ''}</td>
-                            <td>{order.products.map((product) => product.name).join(', ')}</td>
+                            <td>
+                                {order.products.map((product) => (
+                                    <div>
+                                        <li>
+                                            <span>{product.name}</span>
+                                            <span>{` x${product.quantity}`}</span>
+                                        </li>
+                                    </div>
+                                ))}
+                            </td>
                             <td>{order.total_price}</td>
                             <td>{order.status}</td>
                         </tr>
