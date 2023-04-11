@@ -18,8 +18,8 @@
 }
 
 .orders-table th {
-    background-color: #f2f2f2;
     font-weight: bold;
+    color: white;
 }
 
 .orders-table tbody tr:nth-child(even) {

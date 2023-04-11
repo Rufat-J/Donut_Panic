@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { CartContext } from '../CartContext.jsx';
 import OrdersPage from "./OrdersPage.jsx";
+import {UserContext} from "../UserContext.jsx";
 
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
+    const { user: {userID} } = useContext(UserContext);
 
     const totalPrice = cartItems.reduce(
         (total, item) => total + parseFloat(item.price) * item.quantity,
@@ -15,10 +17,11 @@ export default function ShoppingCartPage() {
 
     const confirmOrder = useCallback(async() => {
         console.log(cartItems)
+        console.log(userID)
         const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cartItems, totalPrice }),
+            body: JSON.stringify({ cartItems, totalPrice, userID }),
             credentials: 'include',
         })
         const result = await response.json()
