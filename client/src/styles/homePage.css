@@ -4,20 +4,40 @@ body main .homePage {
     align-items: center;
     background-color: #FAEADB;
     color: #c89797;
+    background-image: url("../images/mainPageImg.jpg");
+}
 
-}
 .homePageImg{
-    background-color: red;
-}
-.background {
+    width: 120vw;
+    height: 100vh;
+    background-image: url("../images/mainPageImg.jpg");
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.35);
 }
+
 #root {
+    background-size: cover;
+    background-position: center ;
     width: 100%;
     height: 100%;
-    background-color: red;
-    background-size: cover;
-    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.homePageQuote {
+    display: flex;
+    justify-content: center;
+    alignt-items: center;
+    background-color: rgba(128, 128, 128, 0.51);
+    color: white;
+    padding: 10px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 800;
+    font-size: 40px;
+    width: 490px;
+}
