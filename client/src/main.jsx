@@ -10,11 +10,12 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
 import Cart from "./pages/ShoppingCartPage.jsx"
-import { CartProvider } from "./components/CartContext.jsx";
+import { CartProvider } from "./CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
 import AddNewItemPage from './pages/AddNewItemPage'
-import OrdersPage from "./pages/OrdersPage.jsx";
+import AllOrdersPage from "./pages/AllOrdersPage.jsx";
+import MyOrder from "./components/MyOrder.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -27,7 +28,8 @@ const router = createBrowserRouter(
             <Route path="/cold-drinks" element={<ColdDrinksPage />}/>
             <Route path="/hot-drinks" element={<HotDrinksPage />}/>
             <Route path="/update-menu" element={<AddNewItemPage />}/>
-            <Route path="/orders" element={<OrdersPage/>}/>
+            <Route path="/orders" element={<AllOrdersPage />}/>
+            <Route path="/my-order" element={<MyOrder />}/>
 
         </Route>
 

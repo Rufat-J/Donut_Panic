@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { CartContext } from './CartContext.jsx';
+import { CartContext } from '../CartContext.jsx';
 
 export default function AddToCartButton({ product }) {
     const [quantity, setQuantity] = useState(0);

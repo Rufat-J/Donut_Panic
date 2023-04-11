@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
-import { CartContext } from '../components/CartContext';
+import { CartContext } from '../CartContext.jsx';
 import OrdersPage from "./OrdersPage.jsx";
 
 export default function ShoppingCartPage() {

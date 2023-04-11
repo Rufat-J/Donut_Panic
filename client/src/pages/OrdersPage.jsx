@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import '../styles/ordersPage.css';
 import {UserContext} from "../UserContext.jsx";
 
@@ -20,7 +20,7 @@ export default function OrdersPage({ order, totalPrice, cartItems }) {
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{order._id}</td>
+                    {/*<td>{order._id}</td>*/}
                     <td>{name}</td>
                     <td>{cartItems.map((cartItem) => <li key={cartItem._id}>{cartItem.name}</li>)}</td>
                     <td>${totalPrice}</td>

@@ -1,0 +1,33 @@
+.table-wrapper {
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.orders-table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 16px 0;
+}
+
+.orders-table th,
+.orders-table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.orders-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.orders-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    .orders-table {
+        overflow-x: scroll;
+    }
+}
