@@ -24,7 +24,7 @@
     background: linear-gradient(to left, #dad8d3, #fefdfd);
     text-align: center;
     margin: 1rem;
-    height: 42rem;
+    height: 44rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -164,4 +164,17 @@
 
 .edit-details form button:hover {
     background-color: #36cef0;
+}
+
+.more-info {
+    background-color: #70cadf;
+    border-radius: 5%;
+    margin-top: 40px;
+    border: none;
+
+}
+
+.more-info:hover {
+    border-color: #F77586;
+    background-color: #F77586;
 }
