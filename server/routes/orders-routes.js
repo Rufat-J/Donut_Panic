@@ -30,7 +30,7 @@ ordersRouter.post("/", async (req, res) => {
         console.log(req.body)
         const order = new OrdersModel({
             status: req.body.status,
-            user: req.body.user,
+            user: req.body.userID,
             restaurant: req.body.restaurant,
             total_price: req.body.totalPrice,
             products: req.body.cartItems,

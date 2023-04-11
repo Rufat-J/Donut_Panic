@@ -11,6 +11,8 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
     const [editingOrderId, setEditingOrderId] = useState(null);
     const [editingStatus, setEditingStatus] = useState(null);
 
+    console.log(orders)
+
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/orders');
@@ -66,8 +68,8 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                     {orders.map((order) => (
                         <tr key={order._id}>
                             <td>{order._id}</td>
-                            <td>{order.name}</td>
-                            <td>{order.products.join(', ')}</td>
+                            <td>{order.user ? order.user.name : ''}</td>
+                            <td>{order.products.map((product) => product.name).join(', ')}</td>
                             <td>{order.total_price}</td>
                             <td>{order.status}</td>
                             <td>
