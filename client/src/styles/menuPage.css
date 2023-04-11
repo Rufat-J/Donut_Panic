@@ -11,7 +11,6 @@
 .menu-header {
     order: -1;
     margin-bottom: 20px;
-    color: #F77586;
     text-align: center;
     margin-top: 6rem;
 }
@@ -167,7 +166,7 @@
 }
 
 .more-info {
-    background-color: #70cadf;
+    background-color: #0a6478;
     border-radius: 5%;
     margin-top: 40px;
     border: none;

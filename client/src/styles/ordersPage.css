@@ -32,10 +32,11 @@
 .orders-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
-.orders-table tr:hover {
-    background-color: #f2f2f2;
+.orders-table  {
+    background-color: rgba(249, 249, 249, 0.22);
+    cursor: default;
 }
+
 
 .orders-table .order-id {
     color: #0077cc;
