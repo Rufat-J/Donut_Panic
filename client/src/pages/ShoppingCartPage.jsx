@@ -15,6 +15,7 @@ export default function ShoppingCartPage() {
 
     const confirmOrder = useCallback(async() => {
         console.log(cartItems)
+        console.log(totalPrice)
         const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
