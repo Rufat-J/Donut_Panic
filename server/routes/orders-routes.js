@@ -9,7 +9,24 @@ const ordersSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId, ref: "users",
     }, restaurant: {
         type: mongoose.Schema.Types.ObjectId, ref: "restaurants",
-    }, total_price: Number, status: String, // pickup_time: Date,
+    },
+    total_price: Number,
+    status: {
+        type: String,
+        default: "pending",
+    },
+    pickup_time: {
+        type: Date,
+        default: function () {
+            const now = new Date();
+            const pickupTime = new Date(
+                now.getTime() +
+                5 * 60 * 1000 +
+                Math.min(15 * 60 * 1000, 60 * 1000 * Math.floor(this.products.reduce((acc, product) => acc + product.quantity, 0) / 2))
+            );
+            return pickupTime;
+        },
+    },
     // order_time: Date,
     products: [{
         product: {
@@ -17,8 +34,10 @@ const ordersSchema = new Schema({
         },
         quantity: Number,
         name: String,
-        price: Number
-    },],
+        price: Number,
+    },
+
+    ],
 });
 
 const OrdersModel = mongoose.model("Orders", ordersSchema);
@@ -83,7 +102,6 @@ ordersRouter.patch("/:id", async (req, res) => {
         res.status(500).json(error);
     }
 });
-
 
 
 export default ordersRouter;

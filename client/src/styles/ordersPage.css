@@ -15,10 +15,11 @@
 
 .orders-table th,
 .orders-table td {
-    border: 1px solid #007575;
+    border: 1px solid #adc3c3;
     padding: 1rem;
-    text-align: left;
+
 }
+
 
 .orders-table th {
     background-color: #008C93;
@@ -47,3 +48,23 @@
 .orders-table .order-total {
     font-weight: bold;
 }
+
+.myOrdersPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pending-status {
+    color: red;
+}
+
+.ready-status {
+    color: green;
+}
+
+.preparing-status  {
+    color: orange;
+}
+
