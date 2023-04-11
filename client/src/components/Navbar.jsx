@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../UserContext';
-import { CartContext } from './CartContext';
+import { CartContext } from '../CartContext.jsx';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/navbar.css';
