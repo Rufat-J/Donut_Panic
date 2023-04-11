@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 
-const MenuContext = createContext();
+const OrdersContext = createContext();
 
 export const useOrders = () => useContext(OrdersContext);
 
@@ -61,11 +61,6 @@ export const OrdersProvider = ({ children }) => {
             console.error(error);
         }
     };
-
-  /*  const donutMenu = orders.filter((orderItem) => orderItem.category === 'Donut');
-    const drinkMenu = orders.filter((orderItem) => orderItem.category === "Cold Drink")
-    const hotDrinksMenu = orders.filter((menuItem) => menuItem.category === "Hot Drink")*/
-
 
     return (
         <OrdersContext.Provider value={{ handleUpdate, handleDelete }}>

@@ -1,31 +1,46 @@
-import {useContext} from 'react';
-import '../styles/ordersPage.css';
-import {UserContext} from "../UserContext.jsx";
+import { useState, useEffect } from 'react';
+import '../styles/allOrdersPage.css';
 
-export default function OrdersPage({ order, totalPrice, cartItems }) {
-    const { user: {name} } = useContext(UserContext);
+
+export default function AllOrdersPage() {
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/orders');
+            const ordersData = await response.json();
+            setOrders(ordersData);
+        }
+        fetchData();
+    }, []);
+
     return (
-        <div className="orders-page">
-            <h1>Order Confirmation</h1>
-            <p>Thank you for your order!</p>
-            <table className="orders-table">
-                <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Products</th>
-                    <th>Order Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    {<td>{order._id}</td>}
-                    <td>{name}</td>
-                    <td>{cartItems.map((cartItem) => <li key={cartItem._id}>{cartItem.name}</li>)}</td>
-                    <td>${totalPrice}</td>
-                </tr>
-                </tbody>
-            </table>
+        <div>
+            <h1>Orders</h1>
+            <div className="table-wrapper">
+                <table className="orders-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Products</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {orders.map((order) => (
+                        <tr key={order._id}>
+                            <td>{order._id}</td>
+                            <td>{order.name}</td>
+                            <td>{order.products.join(', ')}</td>
+                            <td>{order.total_price}</td>
+                            <td>{order.status}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
