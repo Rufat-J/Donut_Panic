@@ -8,16 +8,16 @@ import {OrdersProvider} from "../OrdersContext.jsx";
 
 export default function Root() {
     return (
-            <UserProvider>
+        <UserProvider>
+            <MenuProvider>
                 <OrdersProvider>
-                <MenuProvider>
                     <CartProvider>
                         <Navbar/>
                         <Outlet/>
                         <Footer/>
                     </CartProvider>
-                </MenuProvider>
                 </OrdersProvider>
-            </UserProvider>
+            </MenuProvider>
+        </UserProvider>
     );
 }

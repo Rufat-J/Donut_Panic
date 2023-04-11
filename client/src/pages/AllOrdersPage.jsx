@@ -4,7 +4,6 @@ import {UserContext} from "../UserContext.jsx";
 
 export default function OrdersPage({ order, totalPrice, cartItems }) {
     const { user: {name} } = useContext(UserContext);
-    console.log(name)
     return (
         <div className="orders-page">
             <h1>Order Confirmation</h1>
@@ -20,7 +19,7 @@ export default function OrdersPage({ order, totalPrice, cartItems }) {
                 </thead>
                 <tbody>
                 <tr>
-                    {/*<td>{order._id}</td>*/}
+                    {<td>{order._id}</td>}
                     <td>{name}</td>
                     <td>{cartItems.map((cartItem) => <li key={cartItem._id}>{cartItem.name}</li>)}</td>
                     <td>${totalPrice}</td>
