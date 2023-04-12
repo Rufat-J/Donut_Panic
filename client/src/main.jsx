@@ -30,7 +30,6 @@ const router = createBrowserRouter(
             <Route path="/update-menu" element={<AddNewItemPage />}/>
             <Route path="/orders" element={<AllOrdersPage />}/>
             <Route path="/my-order" element={<MyOrdersPage />}/>
-
         </Route>
 
     ])
