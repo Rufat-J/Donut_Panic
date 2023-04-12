@@ -7,11 +7,12 @@
 }
 
 .myOrdersPage h1 {
-    padding-bottom: 20px;
+    padding-bottom:10px;
     color: #F77586;
 }
 
 .orders-table-wrap {
+    max-height: 350px;
     overflow-x: auto;
 }
 
@@ -39,7 +40,11 @@
 }
 
 .orders-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
+}
+
+.orders-table tbody tr:nth-child(odd) {
+    background-color: rgb(236, 255, 255);
 }
 
 .orders-table tbody tr:hover {
@@ -64,7 +69,7 @@
 
 @media (max-width: 700px) {
     .myOrdersPage h1 {
-        padding: 30% 0 10% 0;
+        padding: 30% 0 5% 0;
         color: #F77586;
     }
 
@@ -85,6 +90,7 @@
     .orders-table td {
         display: block;
         text-align: right;
+        font-size: medium;
     }
 
     .orders-table td:before {
@@ -97,11 +103,11 @@
     }
 
     .orders-table tbody tr {
-        border-bottom: 15px solid #006464;
+        border-bottom: 15px solid #007575;
     }
 
     .orders-table tbody tr:last-child {
-        border-bottom: none;
+        border-bottom: 1px solid #007575;
     }
 
     .orders-table td:last-child {
