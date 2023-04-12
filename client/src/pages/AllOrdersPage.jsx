@@ -4,8 +4,7 @@ import { UserContext } from "../UserContext.jsx";
 import EditStatusModal from "../components/EditStatusModal.jsx";
 
 export default function AllOrdersPage({ totalPrice, cartItems }) {
-    const { user: { name } } = useContext(UserContext);
-
+    const {user} = useContext(UserContext);
     const [orders, setOrders] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const [editingOrderId, setEditingOrderId] = useState(null);
@@ -19,6 +18,7 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
             const ordersData = await response.json();
             setOrders(ordersData);
         }
+
         fetchData();
     }, []);
 
@@ -48,7 +48,7 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
             return;
         }
 
-        const response = await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
+        const response = await fetch(`/api/orders/${orderId}`, {method: 'DELETE'});
         if (response.ok) {
             setOrders(orders.filter(order => order._id !== orderId));
         } else {
@@ -57,61 +57,66 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
     }
 
     return (
-        <div>
-            {isEditing && (
-                <EditStatusModal
-                    orderId={editingOrderId}
-                    currentStatus={editingStatus}
-                    onClose={handleCloseModal}
-                    onSave={handleSaveStatus}
-                />
+        <>
+            {user && user.isAdmin && (
+                <div>
+                    {isEditing && (
+                        <EditStatusModal
+                            orderId={editingOrderId}
+                            currentStatus={editingStatus}
+                            onClose={handleCloseModal}
+                            onSave={handleSaveStatus}
+                        />
+                    )}
+                    <h1>Orders</h1>
+                    <div className="table-wrapper">
+                        <table className="orders-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Products</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Edit Status</th>
+                                <th>Delete Order</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                    <td>{order._id}</td>
+                                    <td>{order.user ? order.user.name : ''}</td>
+                                    <td>
+                                        {order.products.map((product) => (
+                                            <div key={product._id}>
+                                                <li>
+                                                    <span>{product.name}</span>
+                                                    <span>{` x${product.quantity}`}</span>
+                                                    <span> - {product.price}$ </span>
+                                                </li>
+                                            </div>
+                                        ))}
+                                    </td>
+                                    <td>{order.total_price}</td>
+                                    <td>{order.status}</td>
+                                    <td>
+                                        <button onClick={() => handleStatusEdit(order._id, order.status)}>Edit Status
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDeleteOrder(order._id)}>Delete Order</button>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             )}
-            <h1>Orders</h1>
-            <div className="table-wrapper">
-                <table className="orders-table">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Products</th>
-                        <th>Total Price</th>
-                        <th>Status</th>
-                        <th>Edit Status</th>
-                        <th>Delete Order</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {orders.map((order) => (
-                        <tr key={order._id}>
-                            <td>{order._id}</td>
-                            <td>{order.user ? order.user.name : ''}</td>
-                            <td>
-                                {order.products.map((product) => (
-                                    <div key={product._id}>
-                                        <li>
-                                            <span>{product.name}</span>
-                                            <span>{` x${product.quantity}`}</span>
-                                            <span> - {product.price}$ </span>
-
-                                        </li>
-                                    </div>
-                                ))}
-
-
-                            </td>
-                            <td>{order.total_price}</td>
-                            <td>{order.status}</td>
-                            <td>
-                                <button onClick={() => handleStatusEdit(order._id, order.status)}>Edit Status</button>
-                            </td>
-                            <td>
-                                <button onClick={() => handleDeleteOrder(order._id)}>Delete Order</button>
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            :  {!user.isAdmin && (
+             <div className="error-page"><h1>Sorry, something went wrong!</h1> <br/> <h2>Please, try again.</h2></div>)}
+        </>
     );
+
 }
