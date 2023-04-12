@@ -1,0 +1,34 @@
+.please-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.please-login h1 {
+    font-size: 2.5rem;
+    color: #F77586;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.please-login button {
+    background-color: #009191;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.please-login button:hover {
+    background-color: #F77586;
+}
