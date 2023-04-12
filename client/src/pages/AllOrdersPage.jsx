@@ -75,9 +75,12 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                                         <li>
                                             <span>{product.name}</span>
                                             <span>{` x${product.quantity}`}</span>
+                                            <span> - {product.price}$ </span>
+
                                         </li>
                                     </div>
                                 ))}
+
 
                             </td>
                             <td>{order.total_price}</td>

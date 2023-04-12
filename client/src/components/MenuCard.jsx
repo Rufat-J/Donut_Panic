@@ -4,9 +4,9 @@ import {useContext, useState} from "react";
 import ConfirmDeleteModal from "./ConfirmDeleteModal.jsx";
 import {UserContext} from '../UserContext';
 
-
 export default function MenuCard({menu, onUpdate, onDelete}) {
     const ingredientList = menu.ingredients.join(", ");
+    const [showIngredients, setShowIngredients] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -39,12 +39,17 @@ export default function MenuCard({menu, onUpdate, onDelete}) {
         window.location.reload();
     };
 
+    const handleShowIngredientsClick = () => {
+        setShowIngredients(!showIngredients);
+    };
+
     return (
         <div className="menu-card">
             <img className="menu-pic" src={menu.image}/>
             <div>
                 <h1 className="menu-item">{menu.name}</h1>
-                <p className="ingredients">{ingredientList}</p>
+                {showIngredients && <p className="ingredients">{ingredientList}</p>}
+                <button className="more-info" onClick={handleShowIngredientsClick}>{showIngredients ? "Less Info" : "More Info"}</button>
             </div>
             <br/>
             <h2 className="item-price">Price: ${menu.price}</h2>

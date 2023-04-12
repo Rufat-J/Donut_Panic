@@ -15,7 +15,7 @@ import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
 import AddNewItemPage from './pages/AddNewItemPage'
 import AllOrdersPage from "./pages/AllOrdersPage.jsx";
-import MyOrder from "./components/MyOrder.jsx";
+import MyOrdersPage from "./pages/MyOrdersPage.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements([
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
             <Route path="/hot-drinks" element={<HotDrinksPage />}/>
             <Route path="/update-menu" element={<AddNewItemPage />}/>
             <Route path="/orders" element={<AllOrdersPage />}/>
-            <Route path="/my-order" element={<MyOrder />}/>
+            <Route path="/my-order" element={<MyOrdersPage />}/>
 
         </Route>
 

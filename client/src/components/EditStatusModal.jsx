@@ -27,8 +27,8 @@ export default function EditStatusModal({ orderId, currentStatus, onClose }) {
                 <label htmlFor="status-select">New Status:</label>
                 <select id="status-select" value={newStatus} onChange={handleChange}>
                     <option value="Pending">Pending</option>
-                    <option value="Your order is being prepared">Preparing</option>
-                    <option value="Your order is ready to be picked up">Order is ready</option>
+                    <option value="preparing">Preparing</option>
+                    <option value="ready">Order is ready</option>
                     <option value="You have picked up your order">Order is picked up</option>
                 </select>
                 <div className="modal-buttons">

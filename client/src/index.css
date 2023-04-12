@@ -30,6 +30,60 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
+
+
+}
+
+.myOrdersPage {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://img.freepik.com/free-photo/glazed-donuts-with-coffee-top-view_23-2148332854.jpg?w=1380&t=st=1681248053~exp=1681248653~hmac=64e401b2a6abfef1fb42b66c6a4f78321e8b2a58171dedf44b5b64940aba5aec");
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
+}
+
+.cold-drinks {
+  width: 100%;
+  background-image: url("https://img.freepik.com/free-photo/summer-drinks-limes-lemons-wooden-surface_23-2147631973.jpg?w=1380&t=st=1681249142~exp=1681249742~hmac=bd0ceb94c7b0193d1fa707c1f0c2ecd216ee63a8048354c5f94616f67c0843ed");
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
+  min-height: 120vh;
+}
+
+.hot-drinks {
+
+  width: 100%;
+  background-image: url("https://img.freepik.com/free-photo/coffee-pine-cones-copy-space_23-2148337620.jpg?w=1380&t=st=1681249479~exp=1681250079~hmac=c599c81ae5756c897312d8684ad12dd575bca16b44deb5bf4e2678e1cc424894");
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
+  min-height: 120vh;
+}
+
+.donuts-page{
+
+  width: 100%;
+  background-image: url("https://img.freepik.com/free-photo/sweet-filled-donuts-with-copy-space_23-2148332734.jpg?w=1800&t=st=1681277511~exp=1681278111~hmac=22e60474affc629ea850e6e9f7ef06d4721ef5a92af054004faad66f3db74974");
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
+  min-height: 120vh;
+}
+.donuts-header  {
+  color: #efeaea;
+  background-color: rgba(206, 127, 136, 0.72);
+}
+
+.hot-drinks-header {
+  color: #eccead;
+  background-color: rgba(139, 79, 79, 0.65);
+}
+
+.cold-drinks-header {
+  color: #c9e3df;
+  background-color: rgba(44, 219, 226, 0.6);
 }
 
 h1 {
