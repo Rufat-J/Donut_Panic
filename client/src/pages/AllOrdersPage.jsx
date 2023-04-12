@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from 'react';
 import '../styles/allOrdersPage.css';
 import { UserContext } from "../UserContext.jsx";
 import EditStatusModal from "../components/EditStatusModal.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function AllOrdersPage({ totalPrice, cartItems }) {
     const { user: { name } } = useContext(UserContext);
@@ -29,7 +31,6 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
     }
 
     const handleSaveStatus = (orderId, newStatus) => {
-        // update the order status here...
         setIsEditing(false);
         setEditingOrderId(null);
         setEditingStatus(null);
@@ -51,9 +52,9 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                     onSave={handleSaveStatus}
                 />
             )}
-            <h1>Orders</h1>
+            <h1 className="orders-h1">Orders</h1>
             <div className="table-wrapper">
-                <table className="orders-table">
+                <table className="orders-table orders-table-scroll">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -73,9 +74,9 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                                 {order.products.map((product) => (
                                     <div key={product._id}>
                                         <li>
-                                            <span>{product.name}</span>
+                                            <span className="products">{product.name}</span>
                                             <span>{` x${product.quantity}`}</span>
-                                            <span> - {product.price}$ </span>
+                                            <span> - $ {product.price}</span>
 
                                         </li>
                                     </div>
@@ -83,7 +84,7 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
 
 
                             </td>
-                            <td>{order.total_price}</td>
+                            <td>$ {order.total_price}</td>
                             <td>{order.status}</td>
                             <td>
                                 <button onClick={() => handleStatusEdit(order._id, order.status)}>Edit Status</button>

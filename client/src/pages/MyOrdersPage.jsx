@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
-import '../styles/allOrdersPage.css';
+import '../styles/myOrdersPage.css';
 import {UserContext} from "../UserContext.jsx";
-import EditStatusModal from "../components/EditStatusModal.jsx";
-import {NavLink} from "react-router-dom";
+
 
 export default function MyOrdersPage() {
     const {user} = useContext(UserContext);
@@ -23,7 +22,7 @@ export default function MyOrdersPage() {
     return (
         <div className="myOrdersPage">
             <h1>My Orders</h1>
-            <div className="table-wrapper">
+            <div className="orders-table-wrap">
                 {orders.length > 0 ? (
                     <table className="orders-table">
                         <thead>
@@ -52,7 +51,7 @@ export default function MyOrdersPage() {
                                         </div>
                                     ))}
                                 </td>
-                                <td>{order.total_price}$</td>
+                                <td>$ {order.total_price}</td>
                                 <td className={order.status === 'pending'
                                     ? 'pending-status' : order.status === 'ready'
                                         ? 'ready-status' : order.status === 'preparing'

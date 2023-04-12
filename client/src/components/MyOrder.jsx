@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../styles/ordersPage.css';
+import '../styles/myOrdersPage.css';
 
 export default function MyOrder() {
     return (

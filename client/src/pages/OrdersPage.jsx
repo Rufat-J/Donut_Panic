@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import '../styles/ordersPage.css';
+import '../styles/myOrdersPage.css';
 import {UserContext} from "../UserContext.jsx";
 
 export default function OrdersPage({ order, totalPrice, cartItems }) {
