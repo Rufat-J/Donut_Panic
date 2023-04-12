@@ -1,7 +1,6 @@
 // UserContext.jsx
 
 import React, { createContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext();
 
@@ -20,9 +19,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
         setUser(null);
         sessionStorage.removeItem('user');
-
-        const navigate = useNavigate();
-        navigate('/');
+        window.location.href = '/'
     };
 
     const contextValues = {
