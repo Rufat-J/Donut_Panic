@@ -3,22 +3,19 @@ import { CartContext } from '../CartContext.jsx';
 import OrdersPage from "./OrdersPage.jsx";
 import {UserContext} from "../UserContext.jsx";
 import '../styles/shoppingCartPage.css'
+import {useNavigate} from "react-router-dom";
 
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
     const { user: {userID} } = useContext(UserContext);
-
     const totalPrice = cartItems.reduce(
         (total, item) => total + parseFloat(item.price) * item.quantity,
         0
     ).toFixed(2);
 
-    const [showOrdersPage, setShowOrdersPage] = useState(false);
     const [order, setOrder] = useState([])
 
     const confirmOrder = useCallback(async() => {
-        console.log(cartItems)
-        console.log(userID)
         const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -28,8 +25,10 @@ export default function ShoppingCartPage() {
         const result = await response.json()
         if(result){
             setOrder(result);
-            setShowOrdersPage(true);
             console.log(result)
+            window.location.href = '/my-order';
+
+
         }
     }, [cartItems, totalPrice]);
 
@@ -57,9 +56,7 @@ export default function ShoppingCartPage() {
                     <button className="shopping-cart__confirm-order" onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
             )}
-            {showOrdersPage && (
-                <OrdersPage order={order} totalPrice={totalPrice} cartItems={cartItems} />
-            )}
+
         </div>
     );
 }
