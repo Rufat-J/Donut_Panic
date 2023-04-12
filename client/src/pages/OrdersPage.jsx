@@ -8,25 +8,7 @@ export default function OrdersPage({ order, totalPrice, cartItems }) {
     return (
         <div className="orders-page">
             <h1>Order Confirmation</h1>
-            <p>Thank you for your order!</p>
-            <table className="orders-table">
-                <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Products</th>
-                    <th>Order Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>{order._id}</td>
-                    <td>{name}</td>
-                    <td>{cartItems.map((cartItem) => <li key={cartItem._id}>{cartItem.name}</li>)}</td>
-                    <td>${totalPrice}</td>
-                </tr>
-                </tbody>
-            </table>
+            <h3>Thank you for your order! Click <a href="/my-order">here </a>for order details</h3>
         </div>
     );
 }
