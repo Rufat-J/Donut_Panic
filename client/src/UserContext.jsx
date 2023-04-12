@@ -19,6 +19,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
         setUser(null);
         sessionStorage.removeItem('user');
+        window.location.href = '/'
     };
 
     const contextValues = {
