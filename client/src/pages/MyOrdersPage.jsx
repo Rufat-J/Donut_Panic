@@ -1,23 +1,36 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../styles/myOrdersPage.css';
-import {UserContext} from "../UserContext.jsx";
-
+import { UserContext } from "../UserContext.jsx";
 
 export default function MyOrdersPage() {
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch(`/api/orders?user=${user._id}`);
-            const ordersData = await response.json();
-            setOrders(ordersData);
-        }
+    async function fetchData() {
+        const response = await fetch(`/api/orders?user=${user._id}`);
+        const ordersData = await response.json();
+        setOrders(ordersData);
+    }
 
+    useEffect(() => {
         if (user) {
             fetchData();
         }
     }, [user]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            orders.forEach(async order => {
+                const response = await fetch(`/api/orders/${order._id}`);
+                const updatedOrder = await response.json();
+                if (updatedOrder.status !== order.status) {
+                    fetchData();
+                }
+            })
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [orders]);
 
     return (
         <div className="myOrdersPage">
