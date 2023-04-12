@@ -24,7 +24,7 @@
 
 .orders-table th,
 .orders-table td {
-    border: 1px solid #adc3c3;
+    border: 1px solid #007575;
     padding: 1rem;
 }
 
@@ -48,6 +48,18 @@
 
 .orders-table td {
     display: table-cell;
+}
+
+.pending-status {
+    color: red;
+}
+
+.ready-status {
+    color: green;
+}
+
+.preparing-status  {
+    color: #ff6200;
 }
 
 @media (max-width: 700px) {

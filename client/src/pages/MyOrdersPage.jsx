@@ -44,9 +44,8 @@ export default function MyOrdersPage() {
                                     {order.products.map((product) => (
                                         <div key={product._id}>
                                             <li>
-                                                <span id="products-th">{product.name}</span>
+                                                <span>{product.name}</span>
                                                 <span>{` x${product.quantity}`}</span>
-                                                {/*<span> - {product.price}$ </span>*/}
                                             </li>
                                         </div>
                                     ))}
