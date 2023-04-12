@@ -42,6 +42,22 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
         setEditingStatus(null);
     }
 
+    const handleDeleteOrder = async (orderId) => {
+        const orderToDelete = orders.find((order) => order._id === orderId);
+
+        if (orderToDelete.status !== "You have picked up your order") {
+            console.error('Order cannot be deleted as it has not been picked up yet');
+            return;
+        }
+
+        const response = await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
+        if (response.ok) {
+            setOrders(orders.filter(order => order._id !== orderId));
+        } else {
+            console.error('Failed to delete order');
+        }
+    }
+
     return (
         <div>
             {isEditing && (
@@ -63,6 +79,7 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                         <th>Total Price</th>
                         <th>Status</th>
                         <th>Edit Status</th>
+                        <th>Delete Order</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -88,6 +105,9 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                             <td>{order.status}</td>
                             <td>
                                 <button onClick={() => handleStatusEdit(order._id, order.status)}>Edit Status</button>
+                            </td>
+                            <td>
+                                <button onClick={() => handleDeleteOrder(order._id)}>Delete Order</button>
                             </td>
                         </tr>
                     ))}
