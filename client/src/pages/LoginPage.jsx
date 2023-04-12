@@ -10,7 +10,7 @@ function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { login } = useContext(UserContext);
+    const { login, user } = useContext(UserContext);
     const navigate = useNavigate();
 
     function handleSubmit(event) {
@@ -52,6 +52,8 @@ function LoginPage() {
 
 
     return (
+        <>
+            {!user ? (
         <div className="loginPage">
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
@@ -69,6 +71,10 @@ function LoginPage() {
                 {error && <div className="error">{error}</div>}
             </form>
         </div>
+            ): (
+                <div className="error-page"><h1>Sorry, something went wrong!</h1> <br/> <h2>Please, try again.</h2></div>
+            )}
+        </>
     );
 }
 
