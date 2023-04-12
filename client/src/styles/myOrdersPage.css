@@ -7,7 +7,7 @@
 }
 
 .myOrdersPage h1 {
-    padding: 30% 0 10% 0;
+    padding-bottom: 20px;
     color: #F77586;
 }
 
@@ -51,6 +51,11 @@
 }
 
 @media (max-width: 700px) {
+    .myOrdersPage h1 {
+        padding: 30% 0 10% 0;
+        color: #F77586;
+    }
+
     .orders-table-wrap {
         overflow-x: auto;
     }
@@ -77,6 +82,14 @@
         text-transform: uppercase;
         color: #006464;
         margin-right: 5px;
+    }
+
+    .orders-table tbody tr {
+        border-bottom: 15px solid #006464;
+    }
+
+    .orders-table tbody tr:last-child {
+        border-bottom: none;
     }
 
     .orders-table td:last-child {
