@@ -34,6 +34,7 @@ export default function MyOrdersPage() {
                             <th>Total Price</th>
                             <th>Status</th>
                             <th>Estimated Pick up</th>
+                            <th>Ready to pick up in:</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -52,7 +53,7 @@ export default function MyOrdersPage() {
                                         </div>
                                     ))}
                                 </td>
-                                <td>{order.total_price}$</td>
+                                <td>${order.total_price}</td>
                                 <td className={order.status === 'pending'
                                     ? 'pending-status' : order.status === 'ready'
                                         ? 'ready-status' : order.status === 'preparing'
@@ -64,7 +65,10 @@ export default function MyOrdersPage() {
                                     minute: 'numeric',
                                     hour12: false
                                 })}</td>
-
+                                <td className={order.status === 'waiting for response..'
+                                    ? 'waiting for response..' : order.newPickup === 'ready'
+                                        ? 'ready-status' : order.status === 'preparing'
+                                            ? 'preparing-status' : ''}>{order.status}</td>
                             </tr>
                         ))}
                         </tbody>
