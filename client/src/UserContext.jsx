@@ -10,10 +10,11 @@ export const UserProvider = ({ children }) => {
         return storedUser ? JSON.parse(storedUser) : null;
     });
 
-    const login = (userID, isAdmin, name) => {
-        setUser({userID, isAdmin, name});
-        sessionStorage.setItem('user', JSON.stringify({userID, isAdmin, name}));
+    const login = (userID, isAdmin, name, orders) => {
+        setUser({userID, isAdmin, name, orders});
+        sessionStorage.setItem('user', JSON.stringify({userID, isAdmin, name, orders}));
     };
+
 
     const logout = () => {
         setUser(null);

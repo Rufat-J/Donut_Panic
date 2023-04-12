@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
+import '../styles/homePage.css'
 
 export default function Home() {
 
     return (
         <div className="homePageImg">
-            <img width="100%" height="100%" className="background" src="https://images4.alphacoders.com/941/941939.jpg" alt=""/>
-
+            <h2 className="homePageQuote">You can't buy happiness, but you can buy Donuts. And that's kind of same thing</h2>
         </div>
     );
 }

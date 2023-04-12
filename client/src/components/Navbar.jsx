@@ -31,7 +31,7 @@ export default function Navbar() {
                             Cold Drinks
                         </NavLink>
                     </li>
-                {!user?.isAdmin && (
+                {user && !user?.isAdmin && (
                     <li>
                         <NavLink to="/my-order" className="nav-link">
                             My order

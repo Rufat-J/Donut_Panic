@@ -11,9 +11,9 @@ export default function HotDrinksPage() {
 
 
     return (
-        <div className='menu-page'>
+        <div className='menu-page hot-drinks'>
             <div className='header-and-button'>
-                <h1 className='menu-header'>Hot beverages</h1>
+                <h1 className='menu-header hot-drinks-header'>Hot beverages</h1>
                 <div>
                     {user?.isAdmin && (
                         <NavLink className='update-button' to='/update-menu'>

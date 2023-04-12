@@ -18,6 +18,17 @@
 }
 
 .orders-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.orders-table td {
+    text-align: center;
+    padding: 8px;
+}
+
+
+.orders-table th {
     font-weight: bold;
     color: white;
 }
@@ -30,4 +41,8 @@
     .orders-table {
         overflow-x: scroll;
     }
+}
+
+.products-th {
+    text-align: left !important;
 }

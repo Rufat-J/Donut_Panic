@@ -9,9 +9,9 @@ export default function DonutsPage() {
     const { user } = useContext(UserContext)
 
     return (
-        <div className='menu-page'>
+        <div className='menu-page donuts-page'>
             <div className='header-and-button'>
-                <h1 className='menu-header'>Donuts</h1>
+                <h1 className='menu-header donuts-header'>Donuts</h1>
                 <div>
                     {user?.isAdmin && (
                         <NavLink className='update-button' to='/update-menu'>
