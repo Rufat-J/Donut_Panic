@@ -114,7 +114,7 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                     </div>
                 </div>
             )}
-            :  {!user.isAdmin && (
+              {!user.isAdmin && (
              <div className="error-page"><h1>Sorry, something went wrong!</h1> <br/> <h2>Please, try again.</h2></div>)}
         </>
     );
