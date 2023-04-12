@@ -49,6 +49,7 @@ body {
   background-size:cover;
   background-position:center center;
   background-attachment:fixed;
+  min-height: 120vh;
 }
 
 .hot-drinks {
@@ -58,16 +59,17 @@ body {
   background-size:cover;
   background-position:center center;
   background-attachment:fixed;
+  min-height: 120vh;
 }
 
 .donuts-page{
 
   width: 100%;
-
-  background-image: url("https://img.freepik.com/free-photo/colorful-donuts-line_23-2148019461.jpg?w=1380&t=st=1681249545~exp=1681250145~hmac=66b2f19c284184014bc1bb9b2de78c3f4e1ae18f245e60975743723b2fe04400");
+  background-image: url("https://img.freepik.com/free-photo/sweet-filled-donuts-with-copy-space_23-2148332734.jpg?w=1800&t=st=1681277511~exp=1681278111~hmac=22e60474affc629ea850e6e9f7ef06d4721ef5a92af054004faad66f3db74974");
   background-size:cover;
   background-position:center center;
   background-attachment:fixed;
+  min-height: 120vh;
 }
 .donuts-header  {
   color: #efeaea;
