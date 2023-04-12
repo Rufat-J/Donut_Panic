@@ -68,9 +68,9 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                     onSave={handleSaveStatus}
                 />
             )}
-            <h1 className="orders-h1">Orders</h1>
-            <div className="table-wrapper">
-                <table className="orders-table orders-table-scroll">
+            <h1 className="all-orders-h1">Orders</h1>
+            <div className="all-table-wrapper">
+                <table className="all-orders-table all-orders-table-scroll">
                     <thead>
                     <tr>
                         <th>ID</th>

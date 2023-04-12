@@ -1,60 +1,87 @@
-/*
-!* Component CSS *!
-.orders-h1 {
-    margin-top: 15%;
+.all-orders-h1 {
     color: #F77586;
 }
 
-.table-wrapper {
-    margin-top: 20px;
-    margin-bottom: 100px;
+.allOrdersPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
-.orders-table {
+.allOrdersPage h1 {
+    padding-bottom: 10px;
+    color: #F77586;
+}
+
+.all-table-wrapper {
+    max-height: 500px;
+    overflow-x: auto;
+}
+
+.all-orders-table {
     border-collapse: collapse;
     width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 16px 0;
+    font-size: 0.9rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.orders-table th,
-.orders-table td {
-    text-align: left;
-    padding: 8px;
+.all-orders-table th,
+.all-orders-table td {
+    border: 1px solid #007575;
+    padding: 1rem;
 }
 
-.orders-table th {
-    text-align: center;
-    padding: 8px;
-    font-weight: bold;
-    color: white;
-}
-
-.orders-table td {
-    text-align: left;
-    padding: 10px;
-}
-
-.orders-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.products-th {
-    text-align: left !important;
-}
-
-.orders-table button {
-    margin-left: 1rem;
+.all-orders-table th {
+    position: sticky;
+    top: 0;
     background-color: #008C93;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.all-orders-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.all-orders-table tbody tr:nth-child(odd) {
+    background-color: rgb(236, 255, 255);
+}
+
+.all-orders-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.all-orders-table td {
+    display: table-cell;
+}
+
+.pending-status {
+    color: red;
+}
+
+.ready-status {
+    color: green;
+}
+
+.preparing-status {
+    color: #ff6200;
+}
+
+.all-orders-table button {
+    background-color: #00a3ab;
     color: white;
     border-radius: 5px;
     border: 1px solid white;
 }
 
-.orders-table button:hover {
+.all-orders-table button:hover {
     background-color: #F77586;
 }
+
 
 @media (max-width: 920px) {
     .table-wrapper {
@@ -76,10 +103,79 @@
     }
 }
 
-@media (max-width: 760px) {
-    .orders-table-scroll {
+
+@media (max-width: 840px) {
+    .allOrdersPage h1 {
+        padding: 30% 0 5% 0;
+        color: #F77586;
+    }
+
+    .all-table-wrapper {
         overflow-x: auto;
-        white-space: nowrap;
+    }
+
+    .all-orders-table {
+        padding-bottom: 30%;
+        display: block;
+        width: 200%;
+    }
+
+    .all-orders-table thead {
+        display: none;
+    }
+
+    .all-orders-table td {
+        display: block;
+        text-align: right;
+        font-size: medium;
+    }
+
+    .all-orders-table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #006464;
+        margin-right: 5px;
+    }
+
+    .all-orders-table tbody tr {
+        border-bottom: 15px solid #007575;
+    }
+
+    .all-orders-table tbody tr:last-child {
+        border-bottom: 1px solid #007575;
+    }
+
+    .all-orders-table td:last-child {
+        border-bottom: 0;
+    }
+
+    .all-orders-table td:nth-child(1):before {
+        content: "ID: ";
+    }
+
+    .all-orders-table td:nth-child(2):before {
+        content: "User: ";
+    }
+
+    .all-orders-table td:nth-child(3):before {
+        content: "Products: ";
+    }
+
+    .all-orders-table td:nth-child(4):before {
+        content: "Total Price: ";
+    }
+
+    .all-orders-table td:nth-child(5):before {
+        content: "Status: ";
+    }
+
+    .all-orders-table td:nth-child(6):before {
+        content: "Estimated Pick up: ";
+    }
+
+    .all-orders-table td:nth-child(7):before {
+        content: "Delete: ";
     }
 }
-*/
