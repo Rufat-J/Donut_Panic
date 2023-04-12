@@ -1,5 +1,6 @@
 .all-orders-h1 {
     color: #F77586;
+    font-size: larger;
 }
 
 .allOrdersPage {
@@ -16,7 +17,7 @@
 }
 
 .all-table-wrapper {
-    max-height: 500px;
+    max-height: 360px;
     overflow-x: auto;
 }
 
@@ -30,7 +31,7 @@
 .all-orders-table th,
 .all-orders-table td {
     border: 1px solid #007575;
-    padding: 1rem;
+    padding: 10px;
 }
 
 .all-orders-table th {
