@@ -62,7 +62,7 @@ body {
   min-height: 120vh;
 }
 
-.donuts-page{
+.donuts-page {
 
   width: 100%;
   background-image: url("https://img.freepik.com/free-photo/sweet-filled-donuts-with-copy-space_23-2148332734.jpg?w=1800&t=st=1681277511~exp=1681278111~hmac=22e60474affc629ea850e6e9f7ef06d4721ef5a92af054004faad66f3db74974");
@@ -110,6 +110,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.error404 {
+  width: 100%;
+  background-size:cover;
+  background-position:center center;
+  background-attachment:fixed;
+  min-height: 100vh;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -32,7 +32,7 @@ const router = createBrowserRouter(
             <Route path="/orders" element={<AllOrdersPage />}/>
             <Route path="/my-order" element={<MyOrdersPage />}/>
             <Route path="/please-login" element={<PleaseLogInPage />}/>
-
+            <Route path="*" element={<img className={"error404"} src='./src/images/bild.jpg' alt="error donut page" /> }/>
         </Route>
 
     ])

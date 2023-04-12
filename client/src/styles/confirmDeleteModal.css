@@ -17,6 +17,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
+    width: 500px;
 }
 
 .modal-header {
@@ -33,6 +34,7 @@
 .modal-buttons {
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 .modal-buttons button {
