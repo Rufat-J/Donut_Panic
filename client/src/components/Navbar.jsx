@@ -34,7 +34,7 @@ export default function Navbar() {
                 {user && !user?.isAdmin && (
                     <li>
                         <NavLink to="/my-order" className="nav-link">
-                            My order
+                            My orders
                         </NavLink>
                     </li>
                 )}
