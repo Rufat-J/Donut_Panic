@@ -68,9 +68,9 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                             onSave={handleSaveStatus}
                         />
                     )}
-                    <h1>Orders</h1>
-                    <div className="table-wrapper">
-                        <table className="orders-table">
+                    <h1 className="all-orders-h1">Orders</h1>
+                    <div className="all-table-wrapper">
+                        <table className="all-orders-table all-orders-table-scroll">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -91,14 +91,14 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
                                         {order.products.map((product) => (
                                             <div key={product._id}>
                                                 <li>
-                                                    <span>{product.name}</span>
-                                                    <span>{` x${product.quantity}`}</span>
-                                                    <span> - {product.price}$ </span>
+                                                    <span className="products">{product.name}</span>
+                                                    <span>{` x ${product.quantity}`}</span>
+                                                    <span> - ${product.price} </span>
                                                 </li>
                                             </div>
                                         ))}
                                     </td>
-                                    <td>{order.total_price}</td>
+                                    <td>$ {order.total_price}</td>
                                     <td>{order.status}</td>
                                     <td>
                                         <button onClick={() => handleStatusEdit(order._id, order.status)}>Edit Status

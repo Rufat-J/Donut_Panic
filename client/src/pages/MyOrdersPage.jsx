@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
-import '../styles/allOrdersPage.css';
+import '../styles/myOrdersPage.css';
 import {UserContext} from "../UserContext.jsx";
-import EditStatusModal from "../components/EditStatusModal.jsx";
-import {NavLink} from "react-router-dom";
+
 
 export default function MyOrdersPage() {
     const {user} = useContext(UserContext);
@@ -23,7 +22,7 @@ export default function MyOrdersPage() {
     return (
         <div className="myOrdersPage">
             <h1>My Orders</h1>
-            <div className="table-wrapper">
+            <div className="orders-table-wrap">
                 {orders.length > 0 ? (
                     <table className="orders-table">
                         <thead>
@@ -34,7 +33,6 @@ export default function MyOrdersPage() {
                             <th>Total Price</th>
                             <th>Status</th>
                             <th>Estimated Pick up</th>
-                            <th>Ready to pick up in:</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,14 +44,13 @@ export default function MyOrdersPage() {
                                     {order.products.map((product) => (
                                         <div key={product._id}>
                                             <li>
-                                                <span id="products-th">{product.name}</span>
+                                                <span>{product.name}</span>
                                                 <span>{` x${product.quantity}`}</span>
-                                                {/*<span> - {product.price}$ </span>*/}
                                             </li>
                                         </div>
                                     ))}
                                 </td>
-                                <td>${order.total_price}</td>
+                                <td>$ {order.total_price}</td>
                                 <td className={order.status === 'pending'
                                     ? 'pending-status' : order.status === 'ready'
                                         ? 'ready-status' : order.status === 'preparing'
@@ -65,10 +62,7 @@ export default function MyOrdersPage() {
                                     minute: 'numeric',
                                     hour12: false
                                 })}</td>
-                                <td className={order.status === 'waiting for response..'
-                                    ? 'waiting for response..' : order.newPickup === 'ready'
-                                        ? 'ready-status' : order.status === 'preparing'
-                                            ? 'preparing-status' : ''}>{order.status}</td>
+
                             </tr>
                         ))}
                         </tbody>
