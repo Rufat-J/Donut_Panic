@@ -9,19 +9,15 @@ import {OrdersProvider} from "../OrdersContext.jsx";
 export default function Root() {
     return (
         <UserProvider>
-        <OrdersProvider>
-
-            <MenuProvider>
-
+            <OrdersProvider>
+                <MenuProvider>
                     <CartProvider>
                         <Navbar/>
                         <Outlet/>
                         <Footer/>
                     </CartProvider>
-
-            </MenuProvider>
-
-        </OrdersProvider>
+                </MenuProvider>
+            </OrdersProvider>
         </UserProvider>
     );
 }

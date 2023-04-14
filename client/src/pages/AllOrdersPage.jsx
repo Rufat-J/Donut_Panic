@@ -10,8 +10,6 @@ export default function AllOrdersPage({ totalPrice, cartItems }) {
     const [editingOrderId, setEditingOrderId] = useState(null);
     const [editingStatus, setEditingStatus] = useState(null);
 
-    console.log(orders)
-
     useEffect(() => {
         async function fetchData() {
             const response = await fetch('/api/orders');

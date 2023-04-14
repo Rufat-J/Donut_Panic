@@ -2,7 +2,7 @@ import {useContext} from 'react';
 import '../styles/myOrdersPage.css';
 import {UserContext} from "../UserContext.jsx";
 
-export default function OrdersPage({ order, totalPrice, cartItems }) {
+export default function OrderConfirmation({ order, totalPrice, cartItems }) {
     const { user: {name} } = useContext(UserContext);
     console.log(name)
     return (
