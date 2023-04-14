@@ -1,9 +1,7 @@
 import React, { useContext, useState, useCallback } from 'react';
 import { CartContext } from '../CartContext.jsx';
-import OrderConfirmation from "../components/OrderConfirmation.jsx";
 import {UserContext} from "../UserContext.jsx";
 import '../styles/shoppingCartPage.css'
-import {useNavigate} from "react-router-dom";
 
 export default function ShoppingCartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext);
