@@ -5,12 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/Home.jsx";
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from "react-router-dom"
 import Root from './components/Root'
-import ErrorPage from "./components/ErrorPage.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import DonutsPage from "./pages/DonutsPage"
 import Cart from "./pages/ShoppingCartPage.jsx"
-import { CartProvider } from "./CartContext.jsx";
 import ColdDrinksPage from './pages/ColdDrinksPage'
 import HotDrinksPage from './pages/HotDrinksPage'
 import AddNewItemPage from './pages/AddNewItemPage'

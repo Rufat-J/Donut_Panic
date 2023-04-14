@@ -25,20 +25,8 @@ function LoginPage() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    console.log('Login successful!');
-                    login(data.userID, data.isAdmin, data.name);// Set the user data in context
-                    console.log(data.name)
-                    console.log(data.isAdmin);
-                    // Check if user is an admin
-                    if (data.isAdmin) {
-                        // User is an admin, display message
-                        console.log(data.name + ' You are an admin!');
-                    }
-
-                    // Store the token in local storage
+                    login(data.userID, data.isAdmin, data.name);
                     localStorage.setItem('auth_token', data.token);
-
-                    // Redirect user to another page or perform other actions
                     navigate('/');
                 } else {
                     setError('Invalid email or password');
@@ -49,7 +37,6 @@ function LoginPage() {
                 setError('An error occurred, please try again');
             });
     }
-
 
     return (
         <>

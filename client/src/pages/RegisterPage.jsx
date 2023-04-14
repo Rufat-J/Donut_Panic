@@ -15,7 +15,6 @@ function RegisterPage() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        // submit the registration data to backend or API
         fetch('/api/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
